@@ -1,4 +1,4 @@
-package br.com.fiap.mob20_android_trabalhoconclusao.presentation.main
+package br.com.fiap.mob20_android_trabalhoconclusao.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

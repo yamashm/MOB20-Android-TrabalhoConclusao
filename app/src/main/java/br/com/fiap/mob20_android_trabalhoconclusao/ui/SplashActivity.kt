@@ -1,11 +1,11 @@
-package br.com.fiap.mob20_android_trabalhoconclusao.presentation
+package br.com.fiap.mob20_android_trabalhoconclusao.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import br.com.fiap.mob20_android_trabalhoconclusao.R
-import br.com.fiap.mob20_android_trabalhoconclusao.presentation.main.MainActivity
+import br.com.fiap.mob20_android_trabalhoconclusao.ui.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
