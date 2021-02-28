@@ -1,4 +1,4 @@
-package br.com.fiap.mob20_android_trabalhoconclusao.ui.base.auth
+package br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.auth
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

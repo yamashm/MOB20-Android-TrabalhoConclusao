@@ -11,4 +11,24 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="grey">#d3d3d3</color>
+
+    <color name="secondaryBackground">#214966</color>
+    <color name="primaryTextColor">#214966</color>
+    <color name="secondaryTextColor">#9EB0BC</color>
+    <color name="backgroundComponentColor">#F2F4F6</color>
+
+    <color name="backgroundButtonDisabled">#F2F4F6</color>
+    <color name="backgroundButton">@color/secondaryBackground</color>
+    <color name="backgroundButtonPressed">#6698BC</color>
+
+    <color name="headerTextColor">#FFF</color>
+
+    <color name="home_navigation_background">#214966</color>
+    <color name="home_navigation_item">#FFF</color>
+
+
+    <color name="linkTextColor">@color/primaryTextColor</color>
+    <color name="linkTextColorClicked">#E49C0C</color>
+    <color name="linkTextColorDisabled">#666</color>
+    <color name="ic_launcher_background">#FFF</color>
 </resources>

@@ -1,8 +1,16 @@
 package br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource
 
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.NewUser
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.User
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.UserLogin
 
 interface UserRemoteDataSource {
     suspend fun getUserLogged(): RequestState<User>
+
+    suspend fun doLogin(userLogin: UserLogin): RequestState<User>
+
+    suspend fun resendPassword(email: String): RequestState<String>
+
+    suspend fun create(newUser: NewUser): RequestState<User>
 }

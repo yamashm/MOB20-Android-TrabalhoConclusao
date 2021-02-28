@@ -1,4 +1,4 @@
-package br.com.fiap.mob20_android_trabalhoconclusao.ui.base
+package br.com.fiap.mob20_android_trabalhoconclusao.presentation.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
