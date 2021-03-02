@@ -40,12 +40,12 @@ class LoginFragment : BaseFragment() {
             LoginViewModelFactory(
                 LoginUseCase(
                     UserRepositoryImpl(
-                        UserRemoteFirebaseDataSourceImpl(Firebase.auth)
+                        UserRemoteFirebaseDataSourceImpl(Firebase.auth, Firebase.firestore)
                     )
                 ),
                 ResendPasswordUseCase(
                     UserRepositoryImpl(
-                        UserRemoteFirebaseDataSourceImpl(Firebase.auth)
+                        UserRemoteFirebaseDataSourceImpl(Firebase.auth, Firebase.firestore)
                     )
                 )
             )

@@ -80,7 +80,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvHomeDashboard"
+            android:id="@+id/rvHomeList"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
@@ -91,7 +91,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvSubTitleSignUp"
             app:spanCount="1"
-            tools:listitem="@layout/dash_item" />
+            tools:listitem="@layout/list_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

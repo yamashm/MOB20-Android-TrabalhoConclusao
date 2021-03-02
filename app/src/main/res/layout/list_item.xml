@@ -9,23 +9,30 @@
 
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textViewNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        tools:text="Álcool ou Gasolina" />
+        android:layout_marginStart="32dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:text="Edifícil Milad" />
+
+    <TextView
+        android:id="@+id/textViewLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewNome"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNome"
+        tools:text="Rua Apeninos 236" />
 </androidx.constraintlayout.widget.ConstraintLayout>

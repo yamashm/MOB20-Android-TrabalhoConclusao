@@ -8,11 +8,16 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import br.com.fiap.mob20_android_trabalhoconclusao.R
+import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.AppRemoteFirebaseDataSourceImpl
+import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.AppRepositoryImpl
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.GetMinAppVersionUseCase
 
 abstract class BaseFragment : Fragment() {
     abstract val layout: Int
     private lateinit var loadingView: View
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

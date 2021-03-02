@@ -16,6 +16,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.GetUserLoggedUseCase
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.BaseFragment
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -28,7 +29,7 @@ abstract class BaseAuthFragment : BaseFragment() {
             this,
             BaseViewModelFactory(
                 GetUserLoggedUseCase(
-                    UserRepositoryImpl(UserRemoteFirebaseDataSourceImpl(Firebase.auth))
+                    UserRepositoryImpl(UserRemoteFirebaseDataSourceImpl(Firebase.auth, Firebase.firestore))
                 )
             )
         ).get(BaseAuthViewModel::class.java)

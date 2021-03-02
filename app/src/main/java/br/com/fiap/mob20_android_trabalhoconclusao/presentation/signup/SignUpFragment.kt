@@ -18,6 +18,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.CreateUserUse
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.BaseFragment
 import com.airbnb.lottie.LottieAnimationView
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class SignUpFragment : BaseFragment() {
@@ -53,7 +54,7 @@ class SignUpFragment : BaseFragment() {
             SignUpViewModelFactory(
                 CreateUserUseCase(
                     UserRepositoryImpl(
-                        UserRemoteFirebaseDataSourceImpl(Firebase.auth)
+                        UserRemoteFirebaseDataSourceImpl(Firebase.auth, Firebase.firestore)
                     )
                 )
             )
