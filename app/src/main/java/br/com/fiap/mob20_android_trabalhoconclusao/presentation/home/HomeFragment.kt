@@ -42,6 +42,10 @@ class HomeFragment : BaseAuthFragment() {
                     loadFragment(MapsFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
+                R.id.navigation_list -> {
+
+                    return@setOnNavigationItemSelectedListener true
+                }
             }
             false
         }
