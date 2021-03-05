@@ -42,7 +42,7 @@ class HomeFragment : BaseAuthFragment() {
                     loadFragment(MapsFragment())
                     return@setOnNavigationItemSelectedListener true
                 }
-                R.id.navigation_list -> {
+                R.id.navigation_exit -> {
                     logout()
                     return@setOnNavigationItemSelectedListener true
                 }

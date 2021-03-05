@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MOB20-Android-TrabalhoConclusao</string>
+    <string name="app_name">Mellhor Trabalho</string>
     <string name="name_of_the_application">Nome da Aplicação</string>
     <string name="designed_by">Feito por Seu Nome Aqui</string>
 
@@ -40,4 +40,5 @@
     <string name="update_application">Atualizar aplicativo</string>
     <string name="update_later">Atualizar depois</string>
     <string name="update_message">Você está utilizando uma versão muito antiga do app. Você precisa atualizar para continuar utilizando</string>
+    <string name="menu_home_exit">Sair</string>
 </resources>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MOB20-Android-TrabalhoConclusao</string>
+    <string name="app_name">Better Work</string>
     <string name="name_of_the_application">Name of the Application</string>
     <string name="designed_by">Designed by Your Name Here</string>
 
@@ -40,4 +40,5 @@
     <string name="update_application">Update app</string>
     <string name="update_later">Update later</string>
     <string name="update_message">You are using a very old version of the app. You need to update to continue using</string>
+    <string name="menu_home_exit">Exit</string>
 </resources>
