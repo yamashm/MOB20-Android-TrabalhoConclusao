@@ -13,4 +13,6 @@ interface UserRemoteDataSource {
     suspend fun resendPassword(email: String): RequestState<String>
 
     suspend fun create(newUser: NewUser): RequestState<User>
+
+    suspend fun logout(): RequestState<Boolean>
 }

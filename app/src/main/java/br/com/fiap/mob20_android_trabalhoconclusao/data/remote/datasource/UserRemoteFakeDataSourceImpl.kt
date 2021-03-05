@@ -25,4 +25,8 @@ class UserRemoteFakeDataSourceImpl : UserRemoteDataSource {
     override suspend fun create(newUser: NewUser): RequestState<User> {
         TODO("Not yet implemented")
     }
+
+    override suspend fun logout(): RequestState<Boolean> {
+        TODO("Not yet implemented")
+    }
 }

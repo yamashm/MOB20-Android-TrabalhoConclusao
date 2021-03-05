@@ -75,4 +75,13 @@ class UserRemoteFirebaseDataSourceImpl(
             RequestState.Error(e)
         }
     }
+
+    override suspend fun logout(): RequestState<Boolean> {
+        mAuth.signOut()
+        return if (mAuth.currentUser == null) {
+            RequestState.Success(true)
+        } else {
+            RequestState.Error(Exception("Não foi possível deslogar"))
+        }
+    }
 }

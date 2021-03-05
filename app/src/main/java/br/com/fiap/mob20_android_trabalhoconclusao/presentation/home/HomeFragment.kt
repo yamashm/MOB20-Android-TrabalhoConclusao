@@ -43,7 +43,7 @@ class HomeFragment : BaseAuthFragment() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.navigation_list -> {
-
+                    logout()
                     return@setOnNavigationItemSelectedListener true
                 }
             }

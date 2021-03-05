@@ -14,7 +14,10 @@ import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.UserRe
 import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.UserRepositoryImpl
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.GetUserLoggedUseCase
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.LogoutUserCase
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.BaseFragment
+import br.com.fiap.mob20_android_trabalhoconclusao.presentation.logout.LogoutViewModel
+import br.com.fiap.mob20_android_trabalhoconclusao.presentation.logout.LogoutViewModelFactory
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -24,6 +27,13 @@ const val NAVIGATION_KEY = "NAV_KEY"
 
 @ExperimentalCoroutinesApi
 abstract class BaseAuthFragment : BaseFragment() {
+    private val logoutViewModel: LogoutViewModel by lazy {
+        ViewModelProvider(
+                this,
+                LogoutViewModelFactory(LogoutUserCase(UserRepositoryImpl(UserRemoteFirebaseDataSourceImpl(Firebase.auth, Firebase.firestore))))
+        ).get(LogoutViewModel::class.java)
+    }
+
     private val baseAuthViewModel: BaseAuthViewModel by lazy {
         ViewModelProvider(
             this,
@@ -47,7 +57,30 @@ abstract class BaseAuthFragment : BaseFragment() {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
+    fun logout() {
+        logoutViewModel.logout()
+    }
+
     private fun registerObserver() {
+        logoutViewModel.logout.observe(viewLifecycleOwner, Observer {
+            result ->
+            when (result) {
+                is RequestState.Loading -> {
+                    showLoading()
+                }
+                is RequestState.Success -> {
+                    hideLoading()
+                }
+                is RequestState.Error -> {
+                    hideLoading()
+                    findNavController().navigate(
+                            R.id.login_nav_graph, bundleOf(
+                            NAVIGATION_KEY to findNavController().currentDestination?.id
+                    ))
+                }
+            }
+        })
+
         baseAuthViewModel.userLogged.observe(viewLifecycleOwner, Observer {
                 result ->
             when (result) {
