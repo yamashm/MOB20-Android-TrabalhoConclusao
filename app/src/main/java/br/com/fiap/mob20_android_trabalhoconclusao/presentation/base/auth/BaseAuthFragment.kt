@@ -70,13 +70,13 @@ abstract class BaseAuthFragment : BaseFragment() {
                 }
                 is RequestState.Success -> {
                     hideLoading()
-                }
-                is RequestState.Error -> {
-                    hideLoading()
                     findNavController().navigate(
                             R.id.login_nav_graph, bundleOf(
                             NAVIGATION_KEY to findNavController().currentDestination?.id
                     ))
+                }
+                is RequestState.Error -> {
+                    hideLoading()
                 }
             }
         })
