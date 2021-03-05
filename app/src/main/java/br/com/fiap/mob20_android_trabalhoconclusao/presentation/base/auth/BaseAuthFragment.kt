@@ -1,5 +1,6 @@
 package br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.LogoutUserCas
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.BaseFragment
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.logout.LogoutViewModel
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.logout.LogoutViewModelFactory
+import br.com.fiap.mob20_android_trabalhoconclusao.presentation.main.MainActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -69,11 +71,8 @@ abstract class BaseAuthFragment : BaseFragment() {
                     showLoading()
                 }
                 is RequestState.Success -> {
-                    hideLoading()
-                    findNavController().navigate(
-                            R.id.login_nav_graph, bundleOf(
-                            NAVIGATION_KEY to findNavController().currentDestination?.id
-                    ))
+                    activity?.finish()
+                    activity?.startActivity(Intent(activity, MainActivity::class.java))
                 }
                 is RequestState.Error -> {
                     hideLoading()
