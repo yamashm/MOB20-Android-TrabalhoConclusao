@@ -10,10 +10,9 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:src="@drawable/ic_launcher_background"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
+        android:layout_height="78dp"
+        android:layout_marginTop="230dp"
+        app:srcCompat="@android:drawable/star_big_on" />
 
     <TextView
         android:id="@+id/textView"
@@ -37,13 +36,13 @@
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:gravity="center"
-        android:layout_marginTop="200dp"
         android:padding="15dp"
         android:text="@string/designed_by"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15sp"
-        android:textStyle="bold"
-        android:textAlignment="center"/>
+        android:textStyle="bold" />
 
 </LinearLayout>

@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name">Better Work</string>
-    <string name="name_of_the_application">Name of the Application</string>
-    <string name="designed_by">Designed by Your Name Here</string>
+    <string name="name_of_the_application">Better Work</string>
+    <string name="designed_by">Designed by Bruno, Demetrius, Dorenalto e Marcelo</string>
 
     <string name="menu_home_home">Home</string>
     <string name="menu_home_profile">Profile</string>
 
-    <string name="home_select_options">Selecione o que deseja calcular</string>
+    <string name="home_select_options">Selecione o veiculo</string>
 
     <string name="label_username">SEU NOME</string>
     <string name="label_phone">TELEFONE</string>
     <string name="label_email">E-MAIL</string>
     <string name="label_password">SENHA</string>
     <string name="label_accept_terms">Li e aceitos os termos</string>
-    <string name="label_terms">Termos de uso</string>
+    <string name="label_terms">Tela Sobre</string>
 
     <string name="label_create_account">Criar minha conta</string>
     <string name="label_reset_password">Esqueci minha senha</string>
@@ -32,7 +32,8 @@
     <string name="signup_subtitle">Preencha os dados da sua conta</string>
 
     <string name="loading_message_processing">Loading</string>
-
+    <string name="google_maps_key">MAPS_API_KEY</string>
+    <string name="work">Trabalho de Conclusão Android</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

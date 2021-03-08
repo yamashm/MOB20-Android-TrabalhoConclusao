@@ -5,11 +5,8 @@ import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.mob20_android_trabalhoconclusao.R
-import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.ListItem
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.auth.BaseAuthFragment
-import br.com.fiap.mob20_android_trabalhoconclusao.presentation.login.MapsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 

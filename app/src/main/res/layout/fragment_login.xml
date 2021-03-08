@@ -52,6 +52,7 @@
             <EditText
                 android:id="@+id/etEmailLogin"
                 style="@style/field_edit_text"
+                android:singleLine="true"
                 tools:text="heiderlopes@apps.com.br" />
 
         </LinearLayout>
@@ -60,7 +61,8 @@
 
             <TextView
                 style="@style/label_edit_text"
-                android:text="@string/label_password" />
+                android:text="@string/label_password"
+                android:singleLine="true" />
 
             <EditText
                 android:id="@+id/etPasswordLogin"

@@ -1,15 +1,12 @@
-package br.com.fiap.mob20_android_trabalhoconclusao.presentation.login
-
-import androidx.fragment.app.Fragment
+package br.com.fiap.mob20_android_trabalhoconclusao.presentation.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import br.com.fiap.mob20_android_trabalhoconclusao.R
-
 import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
@@ -27,9 +24,10 @@ class MapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+        val saopaulo = LatLng(-23.54891993624683, -46.64993083585944)
+        googleMap.addMarker(MarkerOptions().position(saopaulo).title("Marker in Sao Paulo"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(saopaulo))
     }
 
     override fun onCreateView(inflater: LayoutInflater,
@@ -40,7 +38,7 @@ class MapsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        val mapFragment = childFragmentManager.findFragmentById(R.id.mapsFragment) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }
 }
