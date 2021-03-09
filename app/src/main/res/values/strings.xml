@@ -13,7 +13,7 @@
     <string name="label_email">E-MAIL</string>
     <string name="label_password">SENHA</string>
     <string name="label_accept_terms">Li e aceitos os termos</string>
-    <string name="label_terms">Tela Sobre</string>
+    <string name="label_terms">Termos de uso</string>
 
     <string name="label_create_account">Criar minha conta</string>
     <string name="label_reset_password">Esqueci minha senha</string>
