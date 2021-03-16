@@ -33,7 +33,8 @@
 
     <string name="loading_message_processing">Carregando</string>
     <string name="work">Trabalho de Conclusão Android</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="information_app">Informações do App</string>
+    <string name="information_app_tv">Criado por: \nBruno Fonseca RA:999999\nDemetrius RA:9999999\n Dorenalto M Couto RA: 338609\n Marcelo T Yamashita RA:999999</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="update">Atualização!</string>

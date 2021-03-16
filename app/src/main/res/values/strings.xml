@@ -34,7 +34,9 @@
     <string name="loading_message_processing">Loading</string>
     <string name="google_maps_key">MAPS_API_KEY</string>
     <string name="work">Trabalho de Conclusão Android</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="information_app">Informações do App</string>
+    <string name="information_app_tv">Criado por: \n Bruno Fonseca RA:999999 \n Demetrius RA:9999999 \n Dorenalto M Couto RA: 338609 s\n Marcelo T Yamashita RA:999999</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="update">Update!</string>
