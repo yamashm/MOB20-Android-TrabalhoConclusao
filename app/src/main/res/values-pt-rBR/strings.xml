@@ -4,8 +4,8 @@
     <string name="name_of_the_application">Melhor trabalho</string>
     <string name="designed_by">Feito por Bruno, Demetrius, Dorenalto e Marcelo</string>
 
-    <string name="menu_home_home">Home</string>
-    <string name="menu_home_profile">Perfil</string>
+    <string name="menu_home_home">Inicial</string>
+    <string name="menu_home_map">Mapa</string>
     <string name="label_accept_terms">Li e aceitos os termos</string>
     <string name="home_select_options">Selecione o que deseja calcular</string>
 
