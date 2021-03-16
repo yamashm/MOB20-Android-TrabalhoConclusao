@@ -69,7 +69,7 @@
                 <EditText
                     android:id="@+id/etUserNameSignUp"
                     style="@style/field_edit_text"
-                    tools:text="Heider Lopes" />
+                    tools:text="Demétrius Tavares" />
 
             </LinearLayout>
 
@@ -82,7 +82,7 @@
                 <EditText
                     android:id="@+id/etEmailSignUp"
                     style="@style/field_edit_text"
-                    tools:text="heiderlopes@apps.com.br" />
+                    tools:text="@string/label_email" />
 
             </LinearLayout>
 

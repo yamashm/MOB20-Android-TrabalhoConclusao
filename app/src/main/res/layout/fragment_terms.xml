@@ -35,7 +35,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/tvHomeSubTitle"
+            android:id="@+id/tvInformation"
             style="@style/header_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

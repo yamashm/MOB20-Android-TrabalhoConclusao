@@ -1,4 +1,4 @@
-package br.com.fiap.mob20_android_trabalhoconclusao.presentation.home
+package br.com.fiap.mob20_android_trabalhoconclusao.presentation.maps
 
 import android.os.Bundle
 import android.view.LayoutInflater

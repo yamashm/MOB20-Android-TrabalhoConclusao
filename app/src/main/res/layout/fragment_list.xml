@@ -25,7 +25,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
-        tools:text="Olá, Sr. Heider!"
+        tools:text="Olá, Sr. Bruno!"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

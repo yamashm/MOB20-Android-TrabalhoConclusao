@@ -92,6 +92,10 @@ class SignUpFragment : BaseFragment() {
                 etPasswordSignUp.text.toString()
             )
         }
+        btLoginSignUp.setOnClickListener {
+            NavHostFragment.findNavController(this)
+                    .navigate(R.id.login_nav_graph)
+        }
         setUpCheckboxListener()
     }
 

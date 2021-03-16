@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import br.com.fiap.mob20_android_trabalhoconclusao.R
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.auth.BaseAuthFragment
+import br.com.fiap.mob20_android_trabalhoconclusao.presentation.maps.MapsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -20,7 +21,6 @@ class HomeFragment : BaseAuthFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         registerBackPressedAction()
-
         setUpView(view)
     }
 
