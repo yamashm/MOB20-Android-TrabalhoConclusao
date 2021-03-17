@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import br.com.fiap.mob20_android_trabalhoconclusao.R
-import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.UserRemoteFakeDataSourceImpl
 import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.UserRemoteFirebaseDataSourceImpl
 import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.UserRepositoryImpl
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
@@ -53,8 +52,6 @@ abstract class BaseAuthFragment : BaseFragment() {
     ): View? {
         registerObserver()
         baseAuthViewModel.getUserLogged()
-
-
 
         return super.onCreateView(inflater, container, savedInstanceState)
     }

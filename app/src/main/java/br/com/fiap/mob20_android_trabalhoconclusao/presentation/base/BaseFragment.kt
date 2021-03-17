@@ -18,6 +18,19 @@ abstract class BaseFragment : Fragment() {
     abstract val layout: Int
     private lateinit var loadingView: View
 
+    private val baseViewModel: BaseViewModel by lazy {
+        ViewModelProvider(
+                this,
+                BaseViewModelFactory(
+                        GetMinAppVersionUseCase(
+                                AppRepositoryImpl(
+                                        AppRemoteFirebaseDataSourceImpl()
+                                )
+                        )
+                )
+        ).get(BaseViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,6 +43,8 @@ abstract class BaseFragment : Fragment() {
         screenRootView.addView(loadingView)
         return screenRootView
     }
+
+
     fun showLoading(message: String = "Processando a requisição") {
         loadingView.visibility = View.VISIBLE
         if (message.isNotEmpty())

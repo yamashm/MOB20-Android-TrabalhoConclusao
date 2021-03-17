@@ -7,7 +7,7 @@
     <string name="menu_home_home">Inicial</string>
     <string name="menu_home_map">Mapa</string>
     <string name="label_accept_terms">Li e aceitos os termos</string>
-    <string name="home_select_options">Selecione o que deseja calcular</string>
+    <string name="home_select_options">Selecione o veiculo</string>
 
     <string name="label_username">SEU NOME</string>
     <string name="label_phone">TELEFONE</string>

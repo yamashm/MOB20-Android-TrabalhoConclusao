@@ -12,6 +12,7 @@
         android:layout_height="136dp"
         android:background="@drawable/shape_header"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -31,12 +32,24 @@
             android:id="@+id/tvHomeSubTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Versão 2.0"
             android:textColor="#FFF"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvHomeTitle"
-            app:layout_constraintStart_toStartOf="@+id/tvHomeTitle" />
+            app:layout_constraintStart_toStartOf="@+id/tvHomeTitle"
+            tools:text="Versão 2.0" />
+
+        <Button
+            android:id="@+id/btAdd"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout

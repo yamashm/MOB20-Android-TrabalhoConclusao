@@ -78,7 +78,7 @@ class LoginFragment : BaseFragment() {
         }
 
         tvResetPassword.setOnClickListener {
-            //loginViewModel.resendPassword(etEmailLogin.text.toString())
+            loginViewModel.resendPassword(etEmailLogin.text.toString())
         }
 
         tvNewAccount.setOnClickListener {

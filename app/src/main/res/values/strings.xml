@@ -6,7 +6,7 @@
     <string name="menu_home_home">Home</string>
     <string name="menu_home_map">Map</string>
 
-    <string name="home_select_options">Selecione o veiculo</string>
+    <string name="home_select_options">Select vehicle</string>
 
     <string name="label_username">NAME</string>
     <string name="label_phone">PHONE</string>

@@ -9,6 +9,15 @@
         tools:layout="@layout/fragment_home"
         android:id="@+id/homeFragment"
         android:name="br.com.fiap.mob20_android_trabalhoconclusao.presentation.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
     <include app:graph="@navigation/login_nav_graph" />
+    <fragment
+        tools:layout="@layout/fragment_register"
+        android:id="@+id/registerFragment"
+        android:name="br.com.fiap.mob20_android_trabalhoconclusao.presentation.register.RegisterFragment"
+        android:label="RegisterFragment" />
 </navigation>

@@ -16,9 +16,9 @@ class ListFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpView(view)
-        var item: ListItem = ListItem("TESTE", "","")
-
-        var list = listOf<ListItem>(item, item, item, item, item, item)
+//        var item: ListItem = ListItem("TESTE", "","")
+//
+        var list = listOf<ListItem>()
 
         setUpList(list)
     }

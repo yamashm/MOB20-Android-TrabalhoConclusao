@@ -64,12 +64,12 @@
 
                 <TextView
                     style="@style/label_edit_text"
-                    android:text="Nome do lugar" />
+                    android:text="Nome do item" />
 
                 <EditText
-                    android:id="@+id/etNameRegister"
+                    android:id="@+id/etNameItem"
                     style="@style/field_edit_text"
-                    tools:text="Heider Lopes" />
+                    tools:text="" />
 
             </LinearLayout>
 
@@ -80,9 +80,9 @@
                     android:text="Local" />
 
                 <EditText
-                    android:id="@+id/etLocation"
+                    android:id="@+id/etLocationItem"
                     style="@style/field_edit_text"
-                    tools:text="heiderlopes@apps.com.br" />
+                    tools:text="" />
 
             </LinearLayout>
 
@@ -90,12 +90,12 @@
 
                 <TextView
                     style="@style/label_edit_text"
-                    android:text="Local" />
+                    android:text="Descrição" />
 
                 <EditText
-                    android:id="@+id/etDescription"
+                    android:id="@+id/etDescriptionItem"
                     style="@style/field_edit_text"
-                    tools:text="heiderlopes@apps.com.br" />
+                    tools:text="" />
 
             </LinearLayout>
 
