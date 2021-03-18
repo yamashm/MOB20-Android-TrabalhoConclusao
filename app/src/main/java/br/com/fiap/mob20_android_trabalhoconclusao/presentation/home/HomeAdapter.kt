@@ -34,10 +34,11 @@ class HomeAdapter(
                 item: ListItem, clickListener: (ListItem) ->
                 Unit
         ) {
-            val nome = itemView.findViewById<TextView>(R.id.textViewNome)
-            val local = itemView.findViewById<TextView>(R.id.textViewLocal)
-            val imageView =
-                    itemView.findViewById<ImageView>(R.id.imageView)
+            val nome = itemView.findViewById<TextView>(R.id.tvItemNome)
+            val location = itemView.findViewById<TextView>(R.id.tvItemLocation)
+
+            nome.text = item.name
+            location.text = item.location
 
             itemView.setOnClickListener { clickListener(item) }
         }

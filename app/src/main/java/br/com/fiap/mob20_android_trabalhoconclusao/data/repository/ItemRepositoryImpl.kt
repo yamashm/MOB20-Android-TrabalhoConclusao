@@ -13,7 +13,7 @@ class ItemRepositoryImpl(
         return itemRemoteDataSource.save(item)
     }
 
-    override suspend fun getList(): RequestState<List<Item>> {
-        return itemRemoteDataSource.getList()
+    override suspend fun getList(userId: String): RequestState<List<Item>> {
+        return itemRemoteDataSource.getList(userId)
     }
 }

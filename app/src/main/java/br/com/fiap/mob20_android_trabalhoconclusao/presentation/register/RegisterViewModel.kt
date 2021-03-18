@@ -34,7 +34,7 @@ class RegisterViewModel(
 
     fun getItems(){
         viewModelScope.launch {
-            itemsSelectedState.value = getItemsUseCase.getList()
+            itemsSelectedState.value = getItemsUseCase.getList("")
         }
     }
 }

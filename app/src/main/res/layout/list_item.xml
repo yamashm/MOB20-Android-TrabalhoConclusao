@@ -19,20 +19,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewNome"
+        android:id="@+id/tvItemNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:text="Edifícil Milad" />
 
     <TextView
-        android:id="@+id/textViewLocal"
+        android:id="@+id/tvItemLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="@+id/textViewNome"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNome"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/tvItemNome"
+        app:layout_constraintTop_toBottomOf="@+id/tvItemNome"
         tools:text="Rua Apeninos 236" />
 </androidx.constraintlayout.widget.ConstraintLayout>
