@@ -5,7 +5,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.repository.ItemRepository
 
 class SaveItemUseCase (
-        private val getUserLoggedUseCase : GetUserLoggedUseCase ,
+        private val getUserLoggedUseCase : GetUserLoggedUseCase,
         private val itemRepository : ItemRepository
 ) {
     suspend fun save(item: Item): RequestState<Item> {
