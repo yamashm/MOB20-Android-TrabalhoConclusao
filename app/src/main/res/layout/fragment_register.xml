@@ -44,7 +44,7 @@
                 android:id="@+id/tvSubTitleSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/signup_subtitle"
+                android:text="@string/register_your_item"
                 android:textColor="#9EB0BC"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -64,7 +64,7 @@
 
                 <TextView
                     style="@style/label_edit_text"
-                    android:text="Nome do item" />
+                    android:text="@string/name_of_item" />
 
                 <EditText
                     android:id="@+id/etNameItem"
@@ -77,7 +77,20 @@
 
                 <TextView
                     style="@style/label_edit_text"
-                    android:text="Local" />
+                    android:text="@string/phone" />
+
+                <EditText
+                    android:id="@+id/etPhoneItem"
+                    style="@style/field_edit_text"
+                    tools:text="(11) 99999-9999" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/container_edit_text">
+
+                <TextView
+                    style="@style/label_edit_text"
+                    android:text="@string/location" />
 
                 <EditText
                     android:id="@+id/etLocationItem"
@@ -90,7 +103,7 @@
 
                 <TextView
                     style="@style/label_edit_text"
-                    android:text="Descrição" />
+                    android:text="@string/description" />
 
                 <EditText
                     android:id="@+id/etDescriptionItem"
@@ -101,7 +114,7 @@
 
             <Button
                 android:id="@+id/btRegister"
-                android:text="Registrar"
+                android:text="@string/register"
                 style="@style/button"/>
         </LinearLayout>
     </LinearLayout>

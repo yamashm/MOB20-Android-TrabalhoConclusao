@@ -46,4 +46,15 @@
     <string name="default_notification_channel_id">fcm_default_channel</string>
     <string name="default_notification_channel_name">Canal de Avisos</string>
     <string name="default_notification_channel_description">Canal de avisos do aplicativo Calcula Flex</string>
+
+    <string name="name_of_item">Nome do Item</string>
+    <string name="location">Local</string>
+    <string name="phone">Telefone</string>
+    <string name="description">Descrição</string>
+    <string name="register">Registrar</string>
+    <string name="register_your_item">Crie seu item</string>
+
+    <string name="button_create_location">Adicione Local</string>
+    <string name="version">Versão 1.0</string>
+    <string name="Hello">Hello, sr(a)</string>
 </resources>

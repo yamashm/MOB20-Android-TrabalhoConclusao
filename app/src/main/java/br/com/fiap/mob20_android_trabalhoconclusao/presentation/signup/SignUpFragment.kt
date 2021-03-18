@@ -61,7 +61,6 @@ class SignUpFragment : BaseFragment() {
         ).get( SignUpViewModel ::class.java)
     }
 
-
     private fun setUpView(view: View) {
         etUserNameSignUp = view.findViewById(R.id.etUserNameSignUp)
         etEmailSignUp = view.findViewById(R.id.etEmailSignUp)
