@@ -44,4 +44,8 @@
     <string name="update_later">Update later</string>
     <string name="update_message">You are using a very old version of the app. You need to update to continue using</string>
     <string name="menu_home_exit">Exit</string>
+
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="default_notification_channel_name">Notification Channel</string>
+    <string name="default_notification_channel_description">App Notification Channel</string>
 </resources>
