@@ -16,15 +16,12 @@ class RegisterViewModel(
     var itemSaveState = MutableLiveData<RequestState<Item>>()
     val itemsSelectedState = MutableLiveData<RequestState<List<Item>>>()
 
-    fun saveItem(
-            name: String,
-            location:String,
-            description:String
-    ) {
+    fun saveItem(name: String, location: String, description: String, phone: String) {
         val item = Item(
                 name,
                 location,
                 description,
+                phone,
                 ""
         )
         viewModelScope.launch {
@@ -32,7 +29,7 @@ class RegisterViewModel(
         }
     }
 
-    fun getItems(){
+    fun getItems() {
         viewModelScope.launch {
             itemsSelectedState.value = getItemsUseCase.getList("")
         }

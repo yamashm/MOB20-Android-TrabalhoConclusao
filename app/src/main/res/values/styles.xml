@@ -134,4 +134,9 @@
         <item name="android:maxLength">5</item>
         <item name="android:inputType">number</item>
     </style>
+
+    <style name="field_edit_text_number_phone" parent="field_edit_text">
+        <item name="android:maxLength">16</item>
+        <item name="android:inputType">number</item>
+    </style>
 </resources>

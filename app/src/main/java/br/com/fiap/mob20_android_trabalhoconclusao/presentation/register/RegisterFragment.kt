@@ -26,6 +26,7 @@ class RegisterFragment : BaseAuthFragment() {
     private lateinit var btRegister : Button
 
     private lateinit var etNameItem: EditText
+    private lateinit var etPhoneItem: EditText
     private lateinit var etLocationItem: EditText
     private lateinit var etDescriptionItem: EditText
 
@@ -69,6 +70,7 @@ class RegisterFragment : BaseAuthFragment() {
     private fun setUpView(view: View) {
         btRegister = view.findViewById(R.id.btRegister)
         etDescriptionItem = view.findViewById(R.id.etDescriptionItem)
+        etPhoneItem = view.findViewById(R.id.etPhoneItem)
         etLocationItem = view.findViewById(R.id.etLocationItem)
         etNameItem = view.findViewById(R.id.etNameItem)
 
@@ -77,7 +79,10 @@ class RegisterFragment : BaseAuthFragment() {
     private fun setUpListener() {
         btRegister.setOnClickListener{
             registerViewModel.saveItem(
-                    etNameItem.getString(), etLocationItem.getString(), etDescriptionItem.getString()
+                etNameItem.getString(),
+                etPhoneItem.getString(),
+                etLocationItem.getString(),
+                etDescriptionItem.getString()
             )
         }
     }
