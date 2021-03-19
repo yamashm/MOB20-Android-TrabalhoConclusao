@@ -43,6 +43,10 @@
     <string name="update_message">Você está utilizando uma versão muito antiga do app. Você precisa atualizar para continuar utilizando</string>
     <string name="menu_home_exit">Sair</string>
 
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="default_notification_channel_name">Canal de Avisos</string>
+    <string name="default_notification_channel_description">Canal de avisos do aplicativo Calcula Flex</string>
+
     <string name="name_of_item">Nome do Item</string>
     <string name="location">Local</string>
     <string name="phone">Telefone</string>
