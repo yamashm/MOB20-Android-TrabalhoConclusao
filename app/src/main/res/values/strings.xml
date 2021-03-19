@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Better Work</string>
-    <string name="name_of_the_application">Better Work</string>
+    <string name="app_name">Self Car</string>
+    <string name="name_of_the_application">SelfCar</string>
     <string name="designed_by">Designed by Bruno, Demetrius, Dorenalto e Marcelo</string>
 
     <string name="menu_home_home">Home</string>
@@ -44,6 +44,10 @@
     <string name="update_later">Update later</string>
     <string name="update_message">You are using a very old version of the app. You need to update to continue using</string>
     <string name="menu_home_exit">Exit</string>
+
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="default_notification_channel_name">Notification Channel</string>
+    <string name="default_notification_channel_description">App Notification Channel</string>
 
     <string name="name_of_item">Item Name</string>
     <string name="location">Location</string>

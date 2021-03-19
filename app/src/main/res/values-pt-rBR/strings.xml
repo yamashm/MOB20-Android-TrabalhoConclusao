@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Mellhor Trabalho</string>
-    <string name="name_of_the_application">Melhor trabalho</string>
+    <string name="app_name">SelfCar</string>
+    <string name="name_of_the_application">SelfCar</string>
     <string name="designed_by">Feito por Bruno, Demetrius, Dorenalto e Marcelo</string>
 
     <string name="menu_home_home">Inicial</string>
@@ -42,6 +42,10 @@
     <string name="update_later">Atualizar depois</string>
     <string name="update_message">Você está utilizando uma versão muito antiga do app. Você precisa atualizar para continuar utilizando</string>
     <string name="menu_home_exit">Sair</string>
+
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="default_notification_channel_name">Canal de Avisos</string>
+    <string name="default_notification_channel_description">Canal de avisos do aplicativo Calcula Flex</string>
 
     <string name="name_of_item">Nome do Item</string>
     <string name="location">Local</string>
