@@ -11,17 +11,19 @@ import kotlinx.coroutines.launch
 
 class RegisterViewModel(
         private val saveItemUseCase: SaveItemUseCase,
-        private val getItemsUseCase: GetItemsUseCase ): ViewModel() {
+        private val getItemsUseCase: GetItemsUseCase
+): ViewModel() {
 
     var itemSaveState = MutableLiveData<RequestState<Item>>()
     val itemsSelectedState = MutableLiveData<RequestState<List<Item>>>()
 
-    fun saveItem(name: String, location: String, description: String, phone: String) {
+    fun saveItem(name: String, location: String, phone: String ,description: String ) {
+        itemSaveState.value = RequestState.Loading
         val item = Item(
                 name,
                 location,
-                description,
                 phone,
+                description,
                 ""
         )
         viewModelScope.launch {
@@ -31,7 +33,7 @@ class RegisterViewModel(
 
     fun getItems() {
         viewModelScope.launch {
-            itemsSelectedState.value = getItemsUseCase.getList("")
+            itemsSelectedState.value = getItemsUseCase.getList()
         }
     }
 }

@@ -8,12 +8,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.mob20_android_trabalhoconclusao.R
 import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.ItemRemoteFirebaseDataSourceImpl
+import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.UserRemoteFirebaseDataSourceImpl
 import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.ItemRepositoryImpl
+import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.UserRepositoryImpl
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.Item
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.ListItem
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.GetItemsUseCase
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.GetUserLoggedUseCase
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.auth.BaseAuthFragment
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.ArrayList
 
@@ -31,10 +35,19 @@ class ListFragment : BaseAuthFragment() {
                         GetItemsUseCase(
                                 ItemRepositoryImpl(
                                     ItemRemoteFirebaseDataSourceImpl(
+                                        FirebaseAuth.getInstance(),
                                         FirebaseFirestore.getInstance()
                                 )
                         )
-                )
+                ) ,
+                    GetUserLoggedUseCase(
+                        UserRepositoryImpl(
+                            UserRemoteFirebaseDataSourceImpl(
+                                FirebaseAuth.getInstance(),
+                                FirebaseFirestore.getInstance()
+                            )
+                        )
+                    )
                 )
         ).get(ListViewModel::class.java)
     }
@@ -43,12 +56,11 @@ class ListFragment : BaseAuthFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpView(view)
-//        var item: ListItem = ListItem("TESTE", "","")
-//
-        registerObserver()
-        listViewModel.getItems("")//listOf<ListItem>()
 
-        //setUpList(list)
+        registerObserver()
+
+        listViewModel.getItems()
+
     }
 
     private fun setUpView(view: View) {
