@@ -27,27 +27,27 @@ class HomeFragment : BaseAuthFragment() {
     private lateinit var nvHome: BottomNavigationView
     private lateinit var btAdd: Button
 
-//    private val homeViewModel: HomeViewModel by lazy {
-//        ViewModelProvider(
-//                this,
-//                HomeViewModelFactory(
-//                        GetUserLoggedUseCase(
-//                                UserRepositoryImpl(
-//                                        UserRemoteFirebaseDataSourceImpl(
-//                                                FirebaseAuth.getInstance(),
-//                                                FirebaseFirestore.getInstance()
-//                                        )
-//                                )
-//                        )
-//                )
-//        ).get(HomeViewModel::class.java)
-//    }
+    private val homeViewModel: HomeViewModel by lazy {
+        ViewModelProvider(
+                this,
+                HomeViewModelFactory(
+                        GetUserLoggedUseCase(
+                                UserRepositoryImpl(
+                                        UserRemoteFirebaseDataSourceImpl(
+                                                FirebaseAuth.getInstance(),
+                                                FirebaseFirestore.getInstance()
+                                        )
+                                )
+                        )
+                )
+        ).get(HomeViewModel::class.java)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         registerBackPressedAction()
         setUpView(view)
-        //homeViewModel.getUser()
+        homeViewModel.getUser()
     }
 
     private fun setUpView(view: View) {

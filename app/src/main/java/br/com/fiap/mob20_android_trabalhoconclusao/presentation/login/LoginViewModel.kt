@@ -19,6 +19,7 @@ class LoginViewModel(
     val resendPasswordState = MutableLiveData<RequestState<String>>()
 
     fun doLogin(email: String, password: String) {
+        loginState.value = RequestState.Loading
         viewModelScope.launch {
             loginState.value = loginUseCase.doLogin(UserLogin(email, password))
         }

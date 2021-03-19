@@ -6,6 +6,9 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
+import br.com.concrete.canarinho.watcher.TelefoneTextWatcher
+import br.com.concrete.canarinho.watcher.evento.EventoDeValidacao
 import br.com.fiap.mob20_android_trabalhoconclusao.R
 import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.ItemRemoteFirebaseDataSourceImpl
 import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.UserRemoteFirebaseDataSourceImpl
@@ -30,7 +33,6 @@ class RegisterFragment : BaseAuthFragment() {
     private lateinit var etLocationItem: EditText
     private lateinit var etDescriptionItem: EditText
 
-
     private val registerViewModel: RegisterViewModel by lazy {
         ViewModelProvider(
                 this,
@@ -46,13 +48,16 @@ class RegisterFragment : BaseAuthFragment() {
                                 ),
                                 ItemRepositoryImpl(
                                         ItemRemoteFirebaseDataSourceImpl(
+                                            FirebaseAuth.getInstance(),
                                                 FirebaseFirestore.getInstance()
                                         )
                                 )
                         ),
                         GetItemsUseCase(
                                 ItemRepositoryImpl(
-                                        ItemRemoteFirebaseDataSourceImpl(FirebaseFirestore.getInstance())
+                                        ItemRemoteFirebaseDataSourceImpl(
+                                            FirebaseAuth.getInstance(),
+                                            FirebaseFirestore.getInstance())
                                 )
                         )
                 )
@@ -77,11 +82,16 @@ class RegisterFragment : BaseAuthFragment() {
     }
 
     private fun setUpListener() {
+        etPhoneItem.addTextChangedListener(TelefoneTextWatcher(object : EventoDeValidacao {
+            override fun totalmenteValido(valorAtual: String?) {}
+            override fun invalido(valorAtual: String?, mensagem: String?) {}
+            override fun parcialmenteValido(valorAtual: String?) {}
+        }))
         btRegister.setOnClickListener{
             registerViewModel.saveItem(
                 etNameItem.getString(),
-                etPhoneItem.getString(),
                 etLocationItem.getString(),
+                etPhoneItem.getString(),
                 etDescriptionItem.getString()
             )
         }
@@ -92,7 +102,6 @@ class RegisterFragment : BaseAuthFragment() {
             when(it){
                 is RequestState.Success -> {
                     val items = it.data
-
                     hideLoading()
                 }
                 is RequestState.Error -> {
@@ -101,6 +110,24 @@ class RegisterFragment : BaseAuthFragment() {
                 is RequestState.Loading -> {
                     showLoading("Aguarde um momento")
                 }
+            }
+        })
+
+        registerViewModel.itemSaveState.observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is RequestState.Success -> {
+                    hideLoading()
+                    NavHostFragment.findNavController(this)
+                            .navigate(R.id.main_nav_graph)
+                }
+                is RequestState.Loading -> {
+                    showLoading("Aguarde um momento")
+                }
+                is RequestState.Error -> {
+                    hideLoading()
+                    showMessage(it.throwable.message)
+                }
+                is RequestState.Loading -> showLoading("Salvando item")
             }
         })
     }

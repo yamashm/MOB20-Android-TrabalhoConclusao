@@ -7,7 +7,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.domain.repository.ItemReposit
 class GetItemsUseCase(
         private val itemRepository: ItemRepository
 ) {
-    suspend fun getList(userId: String): RequestState<List<Item>> {
-        return itemRepository.getList(userId)
+    suspend fun getList(): RequestState<List<Item>> {
+        return itemRepository.getList()
     }
 }
