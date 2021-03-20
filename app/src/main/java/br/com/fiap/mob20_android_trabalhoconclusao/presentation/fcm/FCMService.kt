@@ -9,7 +9,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.presentation.utils.Notificati
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
-class CalculaFlexFCMService : FirebaseMessagingService() {
+class mob20_android_trabalhoconclusaoFCMService : FirebaseMessagingService() {
 
     override fun onMessageReceived(p0: RemoteMessage) {
 

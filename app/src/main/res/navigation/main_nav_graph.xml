@@ -19,5 +19,10 @@
         tools:layout="@layout/fragment_register"
         android:id="@+id/registerFragment"
         android:name="br.com.fiap.mob20_android_trabalhoconclusao.presentation.register.RegisterFragment"
-        android:label="RegisterFragment" />
+        android:label="RegisterFragment" >
+        <argument
+            android:name="itemId"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
 </navigation>

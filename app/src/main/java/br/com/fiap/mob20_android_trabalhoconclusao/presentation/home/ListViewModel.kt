@@ -20,18 +20,24 @@ class ListViewModel(
 
     val getItemsState = MutableLiveData<RequestState<List<Item>>>()
     val deleteItemState = MutableLiveData<RequestState<String>>()
+    val getUserState = MutableLiveData<RequestState<String>>()
     var userLogged: User? = null
 
     fun getUser(){
         viewModelScope.launch {
             val userReponse = getUserLoggedUseCase.getUserLogged()
+
+            setUpUser(userReponse)
         }
     }
 
     private fun setUpUser(userResponse: RequestState<User>) {
-        when(userResponse) {
-            is RequestState.Success -> userLogged = userResponse.data
-            else -> userLogged = null
+        if(userResponse is RequestState.Success){
+            userLogged = userResponse.data
+            getUserState.value = RequestState.Success(userResponse.data.name)
+        } else
+        {
+            userLogged = null
         }
     }
 

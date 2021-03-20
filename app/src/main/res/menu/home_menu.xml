@@ -7,14 +7,17 @@
 
         <item
         android:id="@+id/navigation_list"
+            android:icon="@drawable/ic_home_24px"
         android:title="@string/menu_home_home"/>
 
         <item
         android:id="@+id/navigation_map"
+            android:icon="@drawable/ic_map_24px"
         android:title="@string/menu_home_map"/>
 
         <item
         android:id="@+id/navigation_exit"
+            android:icon="@drawable/ic_logout_24px"
         android:title="@string/menu_home_exit"/>
     </group>
 </menu>

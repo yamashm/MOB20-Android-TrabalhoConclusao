@@ -1,7 +1,9 @@
 package br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource
 
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.Item
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.NewItem
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.exceptions.ItemNotFoundException
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -50,11 +52,12 @@ class ItemRemoteFirebaseDataSourceImpl(
         }
     }
 
-    override suspend fun save(item: Item): RequestState<Item> {
+    override suspend fun save(item: NewItem): RequestState<NewItem> {
         return try {
             firebaseFirestore.collection("Items")
                     .add(item)
                     .await()
+
             RequestState.Success(item)
         } catch (e: Exception) {
             RequestState.Error(e)
@@ -72,5 +75,38 @@ class ItemRemoteFirebaseDataSourceImpl(
             RequestState.Error(e)
         }
     }
+
+    override suspend fun getItem(id: String): RequestState<Item> {
+        return try{
+            val item = firebaseFirestore.collection("Items").document(id)
+                    .get()
+                    .await()
+                    .toObject(Item::class.java)
+
+            if(item == null)
+                RequestState.Error(ItemNotFoundException())
+            else
+                RequestState.Success(item)
+        } catch (e: Exception){
+            RequestState.Error(e)
+        }
+    }
+
+    override suspend fun update(item: Item): RequestState<String> {
+        return try{
+            firebaseFirestore.collection("Items").document(item.itemId)
+                    .update("name", item.name,
+                            "location", item.location,
+                    "phone", item.phone,
+                    "description", item.description).await()
+
+
+            RequestState.Success("")
+        } catch (e: Exception){
+            RequestState.Error(e)
+        }
+    }
+
+
 
 }
