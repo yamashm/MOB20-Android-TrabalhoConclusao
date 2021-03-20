@@ -16,6 +16,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.ItemRepositor
 import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.UserRepositoryImpl
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.Item
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.User
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.*
 import br.com.fiap.mob20_android_trabalhoconclusao.extensions.getString
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.auth.BaseAuthFragment
@@ -92,7 +93,6 @@ class RegisterFragment : BaseAuthFragment() {
          if(itemId.isNotEmpty()){
                 registerViewModel.getItem(itemId)
         }
-
     }
 
     private fun setUpView(view: View) {
@@ -111,7 +111,7 @@ class RegisterFragment : BaseAuthFragment() {
             override fun parcialmenteValido(valorAtual: String?) {}
         }))
         btRegister.setOnClickListener{
-            if(itemId.isEmpty()) {
+            if(itemId == itemId) {
                 registerViewModel.saveItem(
                         etNameItem.getString(),
                         etLocationItem.getString(),
