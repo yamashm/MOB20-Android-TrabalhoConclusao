@@ -54,7 +54,7 @@
     <string name="register">Registrar</string>
     <string name="register_your_item">Crie seu item</string>
 
-    <string name="button_create_location">Adicione Local</string>
+    <string name="button_create_location">Adicionar</string>
     <string name="version">Versão 1.0</string>
     <string name="Hello">Hello, sr(a)</string>
 </resources>

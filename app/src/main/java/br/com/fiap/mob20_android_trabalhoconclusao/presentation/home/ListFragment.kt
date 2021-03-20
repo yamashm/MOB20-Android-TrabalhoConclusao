@@ -3,8 +3,10 @@ package br.com.fiap.mob20_android_trabalhoconclusao.presentation.home
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.mob20_android_trabalhoconclusao.R
 import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.ItemRemoteFirebaseDataSourceImpl
@@ -27,6 +29,7 @@ class ListFragment : BaseAuthFragment() {
     override val layout = R.layout.fragment_list
 
     private lateinit var rvHomeList: RecyclerView
+    private lateinit var tvHomeHelloUser: TextView
 
     private val listViewModel: ListViewModel by lazy{
         ViewModelProvider(
@@ -67,12 +70,14 @@ class ListFragment : BaseAuthFragment() {
 
         registerObserver()
 
+        listViewModel.getUser()
         listViewModel.getItems()
 
     }
 
     private fun setUpView(view: View) {
         rvHomeList = view.findViewById(R.id.rvHomeList)
+        tvHomeHelloUser = view.findViewById(R.id.tvHomeHelloUser)
 
     }
 
@@ -81,7 +86,8 @@ class ListFragment : BaseAuthFragment() {
     }
 
     private fun clickItem(item: ListItem) {
-
+        var bundle = bundleOf("itemId" to item.itemId)
+        findNavController().navigate(R.id.action_homeFragment_to_registerFragment, bundle);
     }
 
     private fun clickDeleteItem(id: String){
@@ -104,7 +110,7 @@ class ListFragment : BaseAuthFragment() {
                     val listItems:  MutableList<ListItem> = ArrayList()
 
                     for ((name, location, phone, description, itemId, userId) in it.data) {
-                        var item: ListItem = ListItem(name, location, phone, itemId)
+                        var item: ListItem = ListItem(name, location, phone, description, itemId)
 
                         listItems.add(item)
                     }
@@ -124,6 +130,19 @@ class ListFragment : BaseAuthFragment() {
 
                     listViewModel.getItems()
 
+                }
+            }
+        })
+
+        listViewModel.getUserState.observe(viewLifecycleOwner, Observer {
+            when(it) {
+                is RequestState.Loading -> {
+                    showLoading()
+                }
+                is RequestState.Success -> {
+                    hideLoading()
+
+                    tvHomeHelloUser.text = it.data
                 }
             }
         })

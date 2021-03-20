@@ -98,12 +98,12 @@ class LoginFragment : BaseFragment() {
 
     private fun showSuccess() {
         hideLoading()
-        val navIdForArguments = arguments?.getInt(NAVIGATION_KEY)
-        if (navIdForArguments == null) {
+        //val navIdForArguments = arguments?.getInt(NAVIGATION_KEY)
+        //if (navIdForArguments == null) {
             findNavController().navigate(R.id.main_nav_graph)
-        } else {
-            findNavController().popBackStack(navIdForArguments, false)
-        }
+//        } else {
+//            findNavController().popBackStack(navIdForArguments, false)
+//        }
     }
 
     private fun showError(throwable: Throwable) {

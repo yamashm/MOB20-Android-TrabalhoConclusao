@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/register_your_item"
-        android:textColor="#9EB0BC"
+        android:textColor="@color/secondaryTextColor"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/tvHomeHelloUser"
@@ -28,6 +28,7 @@
         android:text="@string/Hello"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/secondaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
