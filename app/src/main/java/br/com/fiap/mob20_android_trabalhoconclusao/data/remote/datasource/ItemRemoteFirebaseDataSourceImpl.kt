@@ -98,7 +98,7 @@ class ItemRemoteFirebaseDataSourceImpl(
                     .update("name", item.name,
                             "location", item.location,
                     "phone", item.phone,
-                    "description", item.description).await()
+                    "description", item.description, "zipCode", item.zipCode).await()
 
 
             RequestState.Success("")
