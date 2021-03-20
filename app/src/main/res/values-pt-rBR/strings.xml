@@ -53,6 +53,7 @@
     <string name="description">Descrição</string>
     <string name="register">Registrar</string>
     <string name="register_your_item">Crie seu item</string>
+    <string name="zip_code">CEP</string>
 
     <string name="button_create_location">Adicionar</string>
     <string name="version">Versão 1.0</string>

@@ -5,5 +5,6 @@ data class ListItem(
         var location: String,
         var phone: String,
         var description: String,
+        var zipCode: String,
         var itemId: String
 )

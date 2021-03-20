@@ -21,13 +21,14 @@ class RegisterViewModel(
     var getItemState =  MutableLiveData<RequestState<Item>>()
     var itemUpdateState = MutableLiveData<RequestState<String>>()
 
-    fun saveItem(name: String, location: String, phone: String ,description: String ) {
+    fun saveItem(name: String, location: String, phone: String, description: String, zipCode: String) {
         itemSaveState.value = RequestState.Loading
         val item = NewItem(
                 name,
                 location,
                 phone,
                 description,
+                zipCode,
                 ""
         )
         viewModelScope.launch {
@@ -41,12 +42,13 @@ class RegisterViewModel(
          }
     }
 
-    fun updateItem(name: String, location: String, phone: String ,description: String, itemId: String){
+    fun updateItem(name: String, location: String, phone: String ,description: String, zipCode: String, itemId: String){
         val item = Item(
                 name,
                 location,
                 phone,
                 description,
+                zipCode,
                 itemId
         )
         viewModelScope.launch {

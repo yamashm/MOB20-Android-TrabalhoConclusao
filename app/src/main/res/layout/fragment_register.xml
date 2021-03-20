@@ -91,7 +91,7 @@
 
                 <TextView
                     style="@style/label_edit_text"
-                    android:text="@string/description" />
+                    android:text="@string/zip_code" />
 
                 <EditText
                     android:id="@+id/etZipCode"
