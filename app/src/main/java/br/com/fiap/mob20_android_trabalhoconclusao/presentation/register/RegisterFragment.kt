@@ -83,8 +83,8 @@ class RegisterFragment : BaseAuthFragment() {
 
         var itemIdArg = arguments?.getString("itemId")
 
-        if(itemIdArg != null){
-            itemId = itemIdArg
+        if(itemIdArg != null && itemIdArg.length > 4){
+                itemId = itemIdArg
         } else {
             itemId = ""
         }
@@ -111,7 +111,7 @@ class RegisterFragment : BaseAuthFragment() {
             override fun parcialmenteValido(valorAtual: String?) {}
         }))
         btRegister.setOnClickListener{
-            if(itemId.isEmpty()) {
+            if(itemId == "") {
                 registerViewModel.saveItem(
                         etNameItem.getString(),
                         etLocationItem.getString(),
