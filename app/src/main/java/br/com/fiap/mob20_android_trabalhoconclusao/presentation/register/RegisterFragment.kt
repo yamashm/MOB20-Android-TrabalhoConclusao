@@ -85,7 +85,7 @@ class RegisterFragment : BaseAuthFragment() {
         var itemIdArg = arguments?.getString("itemId")
 
         if(itemIdArg != null){
-                itemId = itemIdArg
+            itemId = itemIdArg
         } else {
             itemId = ""
         }
