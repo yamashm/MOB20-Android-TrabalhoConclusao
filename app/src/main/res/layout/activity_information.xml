@@ -55,19 +55,46 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-      app:srcCompat="@android:drawable/btn_star_big_on" />
+      app:srcCompat="@drawable/logofiap" />
 
-  <TextView
-      android:id="@+id/tvContributors"
+  <LinearLayout
+      android:id="@+id/contributorsContainer"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
       android:layout_marginEnd="16dp"
       android:layout_marginStart="16dp"
       android:layout_marginTop="60dp"
-      android:text="@string/information_app_tv"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tvInformationAppTitle" />
+      app:layout_constraintTop_toBottomOf="@+id/tvInformationAppTitle"
+      android:orientation="vertical"
+      >
+    <TextView
+        android:id="@+id/tvContributors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="16dp"
+        style="@style/label_title"
+        android:text="@string/information_app_tv"
+        />
+    <TextView
+        style="@style/label_contributor"
+        android:text="Bruno Fonseca de Almeida RM 337107"/>
+    <TextView
+        style="@style/label_contributor"
+        android:text="Demétrius Tavares de Tavares e Paula RM 338132"/>
+    <TextView
+        style="@style/label_contributor"
+        android:text="Dorenalto Mangueira Couto RM 338609"/>
+    <TextView
+        style="@style/label_contributor"
+        android:text="Marcelo Toshio Yamashita RM 337940"/>
+
+  </LinearLayout>
+
+
 
   <TextView
       android:id="@+id/tvInformationAppTitle"
@@ -79,7 +106,7 @@
       android:textColor="#245C8F"
       android:textSize="36sp"
       android:textStyle="bold"
-      app:layout_constraintBottom_toTopOf="@+id/tvContributors"
+      app:layout_constraintBottom_toTopOf="@+id/contributorsContainer"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/imageView3" />
@@ -92,7 +119,7 @@
       android:layout_marginBottom="40dp"
       android:text="@string/version"
       android:textAlignment="center"
-      app:layout_constraintBottom_toTopOf="@+id/tvContributors"
+      app:layout_constraintBottom_toTopOf="@+id/contributorsContainer"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/tvInformationAppTitle" />

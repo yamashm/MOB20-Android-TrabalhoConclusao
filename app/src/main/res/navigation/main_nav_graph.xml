@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_integrationFragment"
+            app:destination="@id/integrationFragment" />
     </fragment>
     <include app:graph="@navigation/login_nav_graph" />
     <fragment
@@ -20,6 +23,16 @@
         android:id="@+id/registerFragment"
         android:name="br.com.fiap.mob20_android_trabalhoconclusao.presentation.register.RegisterFragment"
         android:label="RegisterFragment" >
+        <argument
+            android:name="itemId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_integration"
+        android:id="@+id/integrationFragment"
+        android:name="br.com.fiap.mob20_android_trabalhoconclusao.presentation.integration.IntegrationFragment"
+        android:label="IntegrationFragment" >
         <argument
             android:name="itemId"
             app:argType="string"

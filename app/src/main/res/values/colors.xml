@@ -46,4 +46,7 @@
     <color name="linkTextColorClicked">#E49C0C</color>
     <color name="linkTextColorDisabled">#666</color>
     <color name="ic_launcher_background">#FFF</color>
+
+
+    <color name="infoBackground">#33302F</color>
 </resources>

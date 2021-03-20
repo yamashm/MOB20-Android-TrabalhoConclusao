@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tvSubTitleSignUp"
+    android:background="@color/primaryBackground">
+
+    <LinearLayout
+        android:padding="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivLogoApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvAppName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="48dp"
+                android:text="@string/app_name"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/ivLogoApp"
+                app:layout_constraintTop_toTopOf="@+id/ivLogoApp" />
+
+            <TextView
+                android:id="@+id/tvSubTitleSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/register_your_item"
+                android:textColor="#9EB0BC"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvAppName"
+                app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/container_info">
+
+                <TextView
+                    style="@style/label_title"
+                    android:text="@string/name_of_item" />
+
+                <TextView
+                    style="@style/label_content"
+                    android:id="@+id/tvInfoName"
+                    android:text="@string/location" />
+
+                <TextView
+                    style="@style/label_title"
+                    android:text="@string/location" />
+
+                <TextView
+                    style="@style/label_content"
+                    android:id="@+id/tvInfoLocation"
+                    android:text="@string/location" />
+
+                <TextView
+                    style="@style/label_title"
+                    android:text="@string/phone" />
+
+                <TextView
+                    style="@style/label_content"
+                    android:id="@+id/tvInfoPhone"
+                    android:text="@string/location" />
+
+                <TextView
+                    style="@style/label_title"
+                    android:text="@string/description" />
+
+                <TextView
+                    style="@style/label_content"
+                    android:id="@+id/tvInfoDescription"
+                    android:text="@string/location" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btCall"
+                android:text="@string/call"
+                android:layout_marginEnd="5dp"
+                android:drawableStart="@drawable/ic_call_24px"
+                style="@style/buttonIntegration"/>
+
+                <Button
+                    android:id="@+id/btShare"
+                    android:text="@string/share"
+                    android:layout_marginStart="5dp"
+                    android:drawableStart="@drawable/ic_share_24px"
+                    style="@style/buttonIntegration"/>
+        </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

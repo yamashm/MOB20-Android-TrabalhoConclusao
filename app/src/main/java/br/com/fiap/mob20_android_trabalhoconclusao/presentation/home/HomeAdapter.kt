@@ -13,7 +13,8 @@ import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.ListItem
 class HomeAdapter(
         private var listItems: List<ListItem>,
         private var clickListener: (ListItem) -> Unit,
-        private var deleteClickListener: (String) -> Unit
+        private var deleteClickListener: (String) -> Unit,
+        private var integrationClickListener: (String) -> Unit
 ) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
@@ -28,12 +29,15 @@ class HomeAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(listItems[position], clickListener, deleteClickListener)
+        holder.bind(listItems[position], clickListener, deleteClickListener, integrationClickListener)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(
-                item: ListItem, clickListener: (ListItem) -> Unit, deleteClickListener: (String) -> Unit
+                item: ListItem,
+                clickListener: (ListItem) -> Unit,
+                deleteClickListener: (String) -> Unit,
+                integrationClickListener: (String) -> Unit
         ) {
             val nome = itemView.findViewById<TextView>(R.id.tvItemNome)
             val location = itemView.findViewById<TextView>(R.id.tvItemLocation)
@@ -45,6 +49,12 @@ class HomeAdapter(
 
             btDelete.setOnClickListener{
                 deleteClickListener(item.itemId)
+            }
+
+            val btIntegration = itemView.findViewById<Button>(R.id.btIntegration)
+
+            btIntegration.setOnClickListener{
+                integrationClickListener(item.itemId)
             }
 
             itemView.setOnClickListener { clickListener(item) }
