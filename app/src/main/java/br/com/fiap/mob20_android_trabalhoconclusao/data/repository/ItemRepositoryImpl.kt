@@ -16,4 +16,8 @@ class ItemRepositoryImpl(
     override suspend fun getList(): RequestState<List<Item>> {
         return itemRemoteDataSource.getList()
     }
+
+    override suspend fun delete(id: String): RequestState<String> {
+        return itemRemoteDataSource.delete(id)
+    }
 }

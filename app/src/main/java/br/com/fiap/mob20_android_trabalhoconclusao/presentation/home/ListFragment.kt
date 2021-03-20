@@ -14,6 +14,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.UserRepositor
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.Item
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.ListItem
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.DeleteItemUseCase
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.GetItemsUseCase
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.GetUserLoggedUseCase
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.auth.BaseAuthFragment
@@ -26,7 +27,6 @@ class ListFragment : BaseAuthFragment() {
     override val layout = R.layout.fragment_list
 
     private lateinit var rvHomeList: RecyclerView
-
 
     private val listViewModel: ListViewModel by lazy{
         ViewModelProvider(
@@ -47,7 +47,15 @@ class ListFragment : BaseAuthFragment() {
                                 FirebaseFirestore.getInstance()
                             )
                         )
-                    )
+                    ),
+                        DeleteItemUseCase(
+                                ItemRepositoryImpl(
+                                        ItemRemoteFirebaseDataSourceImpl(
+                                                FirebaseAuth.getInstance(),
+                                                FirebaseFirestore.getInstance()
+                                        )
+                        )
+                        )
                 )
         ).get(ListViewModel::class.java)
     }
@@ -69,11 +77,15 @@ class ListFragment : BaseAuthFragment() {
     }
 
     private fun setUpList(items: List<ListItem>) {
-        rvHomeList.adapter = HomeAdapter(items, this::clickItem)
+        rvHomeList.adapter = HomeAdapter(items, this::clickItem, this::clickDeleteItem)
     }
 
     private fun clickItem(item: ListItem) {
 
+    }
+
+    private fun clickDeleteItem(id: String){
+        listViewModel.deleteItem(id)
     }
 
     private fun setUpListener() {
@@ -91,13 +103,27 @@ class ListFragment : BaseAuthFragment() {
 
                     val listItems:  MutableList<ListItem> = ArrayList()
 
-                    for ((name, location, phone, description, userId) in it.data) {
-                        var item: ListItem = ListItem(name, location, phone)
+                    for ((name, location, phone, description, itemId, userId) in it.data) {
+                        var item: ListItem = ListItem(name, location, phone, itemId)
 
                         listItems.add(item)
                     }
 
                     setUpList(listItems)
+                }
+            }
+        })
+
+        listViewModel.deleteItemState.observe(viewLifecycleOwner, Observer {
+            when(it) {
+                is RequestState.Loading -> {
+                    showLoading()
+                }
+                is RequestState.Success -> {
+                    hideLoading()
+
+                    listViewModel.getItems()
+
                 }
             }
         })
