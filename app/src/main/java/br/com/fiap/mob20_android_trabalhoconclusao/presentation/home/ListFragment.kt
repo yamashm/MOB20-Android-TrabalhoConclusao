@@ -82,7 +82,7 @@ class ListFragment : BaseAuthFragment() {
     }
 
     private fun setUpList(items: List<ListItem>) {
-        rvHomeList.adapter = HomeAdapter(items, this::clickItem, this::clickDeleteItem)
+        rvHomeList.adapter = HomeAdapter(items, this::clickItem, this::clickDeleteItem, this::integrationClickListener)
     }
 
     private fun clickItem(item: ListItem) {
@@ -94,8 +94,9 @@ class ListFragment : BaseAuthFragment() {
         listViewModel.deleteItem(id)
     }
 
-    private fun setUpListener() {
-
+    private fun integrationClickListener(id: String){
+        var bundle = bundleOf("itemId" to id)
+        findNavController().navigate(R.id.action_homeFragment_to_integrationFragment, bundle);
     }
 
     private fun registerObserver() {
