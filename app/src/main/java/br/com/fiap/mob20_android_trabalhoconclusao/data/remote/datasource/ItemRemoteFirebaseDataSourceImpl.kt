@@ -32,6 +32,7 @@ class ItemRemoteFirebaseDataSourceImpl(
 
                                  for (document in task.getResult()!!) {
                                      val taskItem: Item = document.toObject(Item::class.java)
+                                     taskItem.itemId = document.id
                                      list.add(taskItem)
                                  }
                              }
@@ -56,6 +57,18 @@ class ItemRemoteFirebaseDataSourceImpl(
                     .await()
             RequestState.Success(item)
         } catch (e: Exception) {
+            RequestState.Error(e)
+        }
+    }
+
+    override  suspend fun delete(id: String): RequestState<String>{
+        return try{
+            firebaseFirestore.collection("Items").document(id)
+                    .delete()
+                    .await()
+
+            RequestState.Success("")
+        } catch (e: Exception){
             RequestState.Error(e)
         }
     }

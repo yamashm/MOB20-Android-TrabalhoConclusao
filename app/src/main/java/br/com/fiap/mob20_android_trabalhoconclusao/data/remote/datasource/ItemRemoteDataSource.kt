@@ -7,4 +7,6 @@ interface ItemRemoteDataSource{
     suspend fun getList(): RequestState<List<Item>>
 
     suspend fun save(item: Item): RequestState<Item>
+
+    suspend fun delete(id: String): RequestState<String>
 }
