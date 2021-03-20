@@ -109,8 +109,8 @@ class ListFragment : BaseAuthFragment() {
 
                     val listItems:  MutableList<ListItem> = ArrayList()
 
-                    for ((name, location, phone, description, itemId, userId) in it.data) {
-                        var item: ListItem = ListItem(name, location, phone, description, itemId)
+                    for ((name, location, phone, description, zipCode, itemId, userId) in it.data) {
+                        var item: ListItem = ListItem(name, location, phone, description, zipCode, itemId)
 
                         listItems.add(item)
                     }

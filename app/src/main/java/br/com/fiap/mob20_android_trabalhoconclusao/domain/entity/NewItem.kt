@@ -5,5 +5,6 @@ data class NewItem(
         val location: String = "",
         val phone: String = "",
         val description: String = "",
+        val zipCode: String,
         var userId: String = ""
 )

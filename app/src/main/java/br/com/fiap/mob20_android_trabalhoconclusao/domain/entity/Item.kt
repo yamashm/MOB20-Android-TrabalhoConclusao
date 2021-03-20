@@ -5,6 +5,7 @@ data class Item(
         val location: String = "",
         val phone: String = "",
         val description: String = "",
+        val zipCode: String = "",
         var itemId: String = "",
         var userId: String = ""
 )

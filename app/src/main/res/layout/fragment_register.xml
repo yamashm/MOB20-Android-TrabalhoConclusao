@@ -91,6 +91,19 @@
 
                 <TextView
                     style="@style/label_edit_text"
+                    android:text="@string/zip_code" />
+
+                <EditText
+                    android:id="@+id/etZipCode"
+                    style="@style/field_edit_text"
+                    tools:text="01000-000" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/container_edit_text">
+
+                <TextView
+                    style="@style/label_edit_text"
                     android:text="@string/location" />
 
                 <EditText

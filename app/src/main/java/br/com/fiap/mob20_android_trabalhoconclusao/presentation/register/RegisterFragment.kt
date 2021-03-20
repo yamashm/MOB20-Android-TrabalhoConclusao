@@ -7,6 +7,7 @@ import android.widget.EditText
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
+import br.com.concrete.canarinho.watcher.CEPTextWatcher
 import br.com.concrete.canarinho.watcher.TelefoneTextWatcher
 import br.com.concrete.canarinho.watcher.evento.EventoDeValidacao
 import br.com.fiap.mob20_android_trabalhoconclusao.R
@@ -14,7 +15,6 @@ import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.ItemRe
 import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.UserRemoteFirebaseDataSourceImpl
 import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.ItemRepositoryImpl
 import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.UserRepositoryImpl
-import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.Item
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.*
 import br.com.fiap.mob20_android_trabalhoconclusao.extensions.getString
@@ -31,6 +31,7 @@ class RegisterFragment : BaseAuthFragment() {
     private lateinit var etPhoneItem: EditText
     private lateinit var etLocationItem: EditText
     private lateinit var etDescriptionItem: EditText
+    private lateinit var etZipCodeItem: EditText
 
     private lateinit var itemId: String
 
@@ -83,8 +84,8 @@ class RegisterFragment : BaseAuthFragment() {
 
         var itemIdArg = arguments?.getString("itemId")
 
-        if(itemIdArg != null && itemIdArg.length > 4){
-                itemId = itemIdArg
+        if(itemIdArg != null){
+            itemId = itemIdArg
         } else {
             itemId = ""
         }
@@ -101,28 +102,36 @@ class RegisterFragment : BaseAuthFragment() {
         etPhoneItem = view.findViewById(R.id.etPhoneItem)
         etLocationItem = view.findViewById(R.id.etLocationItem)
         etNameItem = view.findViewById(R.id.etNameItem)
-
+        etZipCodeItem = view.findViewById(R.id.etZipCode)
     }
 
     private fun setUpListener() {
+        etZipCodeItem.addTextChangedListener(CEPTextWatcher (object : EventoDeValidacao {
+            override fun totalmenteValido(valorAtual: String?) {}
+            override fun invalido(valorAtual: String?, mensagem: String?) {}
+            override fun parcialmenteValido(valorAtual: String?) {}
+        }))
         etPhoneItem.addTextChangedListener(TelefoneTextWatcher(object : EventoDeValidacao {
             override fun totalmenteValido(valorAtual: String?) {}
             override fun invalido(valorAtual: String?, mensagem: String?) {}
             override fun parcialmenteValido(valorAtual: String?) {}
         }))
         btRegister.setOnClickListener{
-            if(itemId == "") {
+            if(itemId.isEmpty()) {
                 registerViewModel.saveItem(
                         etNameItem.getString(),
                         etLocationItem.getString(),
                         etPhoneItem.getString(),
-                        etDescriptionItem.getString()
+                        etDescriptionItem.getString(),
+                        etZipCodeItem.getString()
                 )
             } else {
                 registerViewModel.updateItem( etNameItem.getString(),
                         etLocationItem.getString(),
                         etPhoneItem.getString(),
-                        etDescriptionItem.getString(), itemId)
+                        etDescriptionItem.getString(),
+                        etZipCodeItem.getString(), itemId)
+
             }
         }
     }
@@ -155,6 +164,7 @@ class RegisterFragment : BaseAuthFragment() {
                     etLocationItem.setText(it.data.location)
                     etPhoneItem.setText(it.data.phone)
                     etDescriptionItem.setText(it.data.description)
+                    etZipCodeItem.setText(it.data.zipCode)
                 }
                 is RequestState.Error -> {
                     hideLoading()
