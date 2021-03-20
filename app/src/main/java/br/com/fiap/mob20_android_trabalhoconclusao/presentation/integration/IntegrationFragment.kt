@@ -1,9 +1,17 @@
 package br.com.fiap.mob20_android_trabalhoconclusao.presentation.integration
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.content.res.Resources
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.fiap.mob20_android_trabalhoconclusao.R
@@ -22,6 +30,7 @@ class IntegrationFragment : BaseAuthFragment(){
     private lateinit var tvInfoLocation: TextView
     private lateinit var tvInfoPhone: TextView
     private lateinit var tvInfoDescription: TextView
+    private lateinit var tvInfoZipCode: TextView
 
     private lateinit var btCall : Button
     private lateinit var btShare : Button
@@ -47,6 +56,12 @@ class IntegrationFragment : BaseAuthFragment(){
         setUpView(view)
         setUpListener()
         registerObserver()
+
+        val itemIdArg = arguments?.getString("itemId")
+
+        if(itemIdArg != null){
+            integrationViewModel.getItem(itemIdArg)
+        }
     }
 
     private fun setUpView(view: View) {
@@ -57,16 +72,50 @@ class IntegrationFragment : BaseAuthFragment(){
         tvInfoLocation = view.findViewById(R.id.tvInfoLocation)
         tvInfoPhone = view.findViewById(R.id.tvInfoPhone)
         tvInfoDescription = view.findViewById(R.id.tvInfoDescription)
-
+        tvInfoZipCode = view.findViewById(R.id.tvInfoZipCode)
     }
 
     private fun setUpListener() {
-        btCall.setOnClickListener{
+        btCall.setOnClickListener {
+            val dialIntent = Intent(Intent.ACTION_CALL)
+            dialIntent.data = Uri.parse("tel:" + tvInfoPhone.text)
 
+            if (ContextCompat.checkSelfPermission(
+                    requireActivity(),
+                    Manifest.permission.CALL_PHONE
+                ) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(
+                        requireActivity(),
+                        Manifest.permission.CALL_PHONE
+                    )
+                ) {
+                    Toast.makeText(activity, Resources.getSystem().getString(R.string.give_call_permission), Toast.LENGTH_SHORT).show()
+                } else {
+                    ActivityCompat.requestPermissions(requireActivity(),
+                        arrayOf(Manifest.permission.CALL_PHONE),
+                        42)
+                }
+            } else {
+                startActivity(dialIntent)
+            }
         }
 
         btShare.setOnClickListener {
 
+            val content: String = tvInfoName.text.toString() +
+                    "\n" + tvInfoZipCode.text.toString() +
+                    "\n" + tvInfoLocation.text.toString() +
+                    "\n" + tvInfoPhone.text.toString() +
+                    "\n" + tvInfoDescription.text.toString()
+
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, content)
+                type = "text/plain"
+            }
+
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            startActivity(shareIntent)
         }
     }
 
@@ -76,16 +125,17 @@ class IntegrationFragment : BaseAuthFragment(){
                 is RequestState.Success -> {
                     hideLoading()
 
-                    tvInfoName.setText(it.data.name)
-                    tvInfoLocation.setText(it.data.location)
-                    tvInfoPhone.setText(it.data.phone)
-                    tvInfoDescription.setText(it.data.description)
+                    tvInfoName.text = it.data.name
+                    tvInfoZipCode.text = it.data.zipCode
+                    tvInfoLocation.text = it.data.location
+                    tvInfoPhone.text = it.data.phone
+                    tvInfoDescription.text = it.data.description
                 }
                 is RequestState.Error -> {
                     hideLoading()
                 }
                 is RequestState.Loading -> {
-                    showLoading("Aguarde um momento")
+                    showLoading(Resources.getSystem().getString(R.string.loading_message))
                 }
             }
         })

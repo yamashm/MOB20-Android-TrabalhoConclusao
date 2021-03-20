@@ -63,4 +63,7 @@
 
     <string name="call">Call</string>
     <string name="share">Share</string>
+
+    <string name="loading_message">Please wait</string>
+    <string name="give_call_permission">Allow de app to make calls</string>
 </resources>

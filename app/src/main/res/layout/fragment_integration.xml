@@ -73,6 +73,15 @@
 
                 <TextView
                     style="@style/label_title"
+                    android:text="@string/zip_code" />
+
+                <TextView
+                    style="@style/label_content"
+                    android:id="@+id/tvInfoZipCode"
+                    android:text="@string/location" />
+
+                <TextView
+                    style="@style/label_title"
                     android:text="@string/location" />
 
                 <TextView

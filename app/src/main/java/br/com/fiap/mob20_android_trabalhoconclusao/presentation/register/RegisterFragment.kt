@@ -82,7 +82,7 @@ class RegisterFragment : BaseAuthFragment() {
         setUpListener()
         registerObserver()
 
-        var itemIdArg = arguments?.getString("itemId")
+        val itemIdArg = arguments?.getString("itemId")
 
         if(itemIdArg != null){
             itemId = itemIdArg

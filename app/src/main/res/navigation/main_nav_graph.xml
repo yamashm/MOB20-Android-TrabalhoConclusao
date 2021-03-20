@@ -36,6 +36,6 @@
         <argument
             android:name="itemId"
             app:argType="string"
-            android:defaultValue='""' />
+            app:nullable="true" />
     </fragment>
 </navigation>

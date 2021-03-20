@@ -61,4 +61,7 @@
 
     <string name="call">Ligar</string>
     <string name="share">Compartilhar</string>
+
+    <string name="loading_message">Aguarde um momento</string>
+    <string name="give_call_permission">Permitir que o aplicativo faça ligações</string>
 </resources>
