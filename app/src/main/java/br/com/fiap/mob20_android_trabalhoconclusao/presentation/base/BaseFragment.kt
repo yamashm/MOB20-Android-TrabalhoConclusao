@@ -12,7 +12,10 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import br.com.fiap.mob20_android_trabalhoconclusao.BuildConfig
 import br.com.fiap.mob20_android_trabalhoconclusao.R
 import br.com.fiap.mob20_android_trabalhoconclusao.data.remote.datasource.AppRemoteFirebaseDataSourceImpl
 import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.AppRepositoryImpl
@@ -89,9 +92,9 @@ abstract class BaseFragment : Fragment() {
                 }
                 is RequestState.Success -> {
                     hideLoading()
-//                    if (it.data > BuildConfig.VERSION_CODE) {
-//                        startUpdateApp()
-//                    }
+                    if (it.data > BuildConfig.VERSION_CODE) {
+                        startUpdateApp()
+                    }
                 }
                 is RequestState.Error -> {
                     NavHostFragment.findNavController(this).navigate(
@@ -103,6 +106,20 @@ abstract class BaseFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun startUpdateApp() {
+        val navOptions = NavOptions.Builder()
+            .setPopUpTo(R.id.updateAppFragment, true)
+            .build()
+        findNavController().setGraph(R.navigation.update_app_nav_graph)
+        findNavController().navigate(R.id.updateAppFragment, null,
+            navOptions)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        baseViewModel.getMinVersion()
     }
 
     fun showLoading(message: String = "Processando a requisição") {
