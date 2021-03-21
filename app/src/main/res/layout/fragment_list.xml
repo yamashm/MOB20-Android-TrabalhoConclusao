@@ -10,7 +10,7 @@
         android:id="@+id/tvSubTitleSignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/register_your_item"
+        android:text="@string/choose_your_item"
         android:textColor="@color/secondaryTextColor"
         android:textSize="16sp"
         android:textStyle="bold"

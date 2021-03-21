@@ -89,7 +89,7 @@ class IntegrationFragment : BaseAuthFragment(){
                         Manifest.permission.CALL_PHONE
                     )
                 ) {
-                    Toast.makeText(activity, Resources.getSystem().getString(R.string.give_call_permission), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, getString(R.string.give_call_permission), Toast.LENGTH_SHORT).show()
                 } else {
                     ActivityCompat.requestPermissions(requireActivity(),
                         arrayOf(Manifest.permission.CALL_PHONE),
@@ -135,7 +135,7 @@ class IntegrationFragment : BaseAuthFragment(){
                     hideLoading()
                 }
                 is RequestState.Loading -> {
-                    showLoading(Resources.getSystem().getString(R.string.loading_message))
+                    showLoading(getString(R.string.loading_message))
                 }
             }
         })

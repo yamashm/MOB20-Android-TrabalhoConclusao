@@ -1,9 +1,11 @@
 package br.com.fiap.mob20_android_trabalhoconclusao.presentation.register
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
@@ -32,6 +34,8 @@ class RegisterFragment : BaseAuthFragment() {
     private lateinit var etLocationItem: EditText
     private lateinit var etDescriptionItem: EditText
     private lateinit var etZipCodeItem: EditText
+
+    private lateinit var tvSubTitleRegister: TextView
 
     private lateinit var itemId: String
 
@@ -86,7 +90,11 @@ class RegisterFragment : BaseAuthFragment() {
 
         if(itemIdArg != null){
             itemId = itemIdArg
+            btRegister.text = getString(R.string.updateItem)
+            tvSubTitleRegister.text = getString(R.string.update_your_item)
         } else {
+            btRegister.text = getString(R.string.registerItem)
+            tvSubTitleRegister.text = getString(R.string.register_your_item)
             itemId = ""
         }
 
@@ -103,6 +111,7 @@ class RegisterFragment : BaseAuthFragment() {
         etLocationItem = view.findViewById(R.id.etLocationItem)
         etNameItem = view.findViewById(R.id.etNameItem)
         etZipCodeItem = view.findViewById(R.id.etZipCode)
+        tvSubTitleRegister = view.findViewById(R.id.tvSubTitleRegister)
     }
 
     private fun setUpListener() {
@@ -145,13 +154,13 @@ class RegisterFragment : BaseAuthFragment() {
                             .navigate(R.id.main_nav_graph)
                 }
                 is RequestState.Loading -> {
-                    showLoading("Aguarde um momento")
+                    showLoading(getString(R.string.loading_message))
                 }
                 is RequestState.Error -> {
                     hideLoading()
                     showMessage(it.throwable.message)
                 }
-                is RequestState.Loading -> showLoading("Salvando item")
+                is RequestState.Loading -> showLoading("Salvando...")
             }
         })
 
@@ -170,7 +179,7 @@ class RegisterFragment : BaseAuthFragment() {
                     hideLoading()
                 }
                 is RequestState.Loading -> {
-                    showLoading("Aguarde um momento")
+                    showLoading(getString(R.string.loading_message))
                 }
             }
         })
@@ -187,7 +196,7 @@ class RegisterFragment : BaseAuthFragment() {
                     hideLoading()
                 }
                 is RequestState.Loading -> {
-                    showLoading("Aguarde um momento")
+                    showLoading(getString(R.string.loading_message))
                 }
             }
         })

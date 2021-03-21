@@ -72,8 +72,8 @@ class LoginFragment : BaseFragment() {
 
         btLogin.setOnClickListener {
             loginViewModel.doLogin(
-                etEmailLogin.text.toString(),
-                etPasswordLogin.text.toString()
+                etEmailLogin.text.toString().trim(),
+                etPasswordLogin.text.toString().trim()
             )
         }
 
@@ -91,19 +91,14 @@ class LoginFragment : BaseFragment() {
             when (it) {
                 is RequestState.Success -> showSuccess()
                 is RequestState.Error -> showError(it.throwable)
-                is RequestState.Loading -> showLoading("Realizando a autenticação")
+                is RequestState.Loading -> showLoading(getString(R.string.login_Loading))
             }
         })
     }
 
     private fun showSuccess() {
-        hideLoading()
-        //val navIdForArguments = arguments?.getInt(NAVIGATION_KEY)
-        //if (navIdForArguments == null) {
             findNavController().navigate(R.id.main_nav_graph)
-//        } else {
-//            findNavController().popBackStack(navIdForArguments, false)
-//        }
+        hideLoading()
     }
 
     private fun showError(throwable: Throwable) {

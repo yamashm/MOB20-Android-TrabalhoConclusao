@@ -12,9 +12,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="grey">#d3d3d3</color>
 
-    <color name="splashBackground">#151515</color>
+    <color name="splashBackground">#303030</color>
     <color name="splashPrimaryColor">#9EB0BC</color>
-
 
     <color name="primaryColor">#641E5E</color>
     <color name="secondaryBackground">#641E5E</color>
@@ -22,7 +21,7 @@
     <color name="primaryTextColor">#9A9999</color>
     <color name="secondaryTextColor">#9EB0BC</color>
     <color name="backgroundComponentColor">#F2F4F6</color>
-    <color name="primaryBackground">#151515</color>
+    <color name="primaryBackground">#303030</color>
     <color name="listItemBackgrund">#9A9999</color>
 
     <color name="backgroundAddButtonDisabled">#5F9164</color>
@@ -47,6 +46,5 @@
     <color name="linkTextColorDisabled">#666</color>
     <color name="ic_launcher_background">#FFF</color>
 
-
-    <color name="infoBackground">#33302F</color>
+    <color name="infoBackground">#151515</color>
 </resources>

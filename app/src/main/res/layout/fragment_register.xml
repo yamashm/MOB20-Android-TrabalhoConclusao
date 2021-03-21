@@ -8,7 +8,7 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tvSubTitleSignUp"
+    app:layout_constraintTop_toBottomOf="@+id/tvSubTitleRegister"
     android:background="@color/primaryBackground">
 
     <LinearLayout
@@ -42,7 +42,7 @@
                 app:layout_constraintTop_toTopOf="@+id/ivLogoApp" />
 
             <TextView
-                android:id="@+id/tvSubTitleSignUp"
+                android:id="@+id/tvSubTitleRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/register_your_item"
@@ -128,7 +128,7 @@
 
             <Button
                 android:id="@+id/btRegister"
-                android:text="@string/register"
+                android:text="@string/registerItem"
                 style="@style/button"/>
         </LinearLayout>
     </LinearLayout>
