@@ -53,7 +53,7 @@
                 android:id="@+id/etEmailLogin"
                 style="@style/field_edit_text"
                 android:singleLine="true"
-                tools:text="heiderlopes@apps.com.br" />
+                tools:text="fiap@apps.com.br" />
 
         </LinearLayout>
 
@@ -68,7 +68,7 @@
                 android:id="@+id/etPasswordLogin"
                 style="@style/field_edit_text"
                 android:inputType="textPassword"
-                tools:text="heiderlopes@apps.com.br" />
+                tools:text="fiap@apps.com.br" />
         </LinearLayout>
 
         <Button
