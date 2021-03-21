@@ -5,6 +5,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.NewUser
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.User
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.UserLogin
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.exceptions.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
@@ -19,7 +20,7 @@ class UserRemoteFirebaseDataSourceImpl(
         mAuth.currentUser?.reload()
         val firebaseUser = mAuth.currentUser
         return if (firebaseUser == null) {
-             RequestState.Error(Exception("Usuário não logado"))
+             RequestState.Error(UserNotLoggedException())
         } else {
             val user = firebaseFirestore
                 .collection("users")
@@ -30,7 +31,7 @@ class UserRemoteFirebaseDataSourceImpl(
             user?.id = firebaseUser.uid
 
             if(user == null) {
-                RequestState.Error(java.lang.Exception("Usuário não encontrado"))
+                RequestState.Error(UserNotFoundException())
             } else {
                 RequestState.Success(user)
             }
@@ -43,7 +44,7 @@ class UserRemoteFirebaseDataSourceImpl(
 
             val firebaseUser = mAuth.currentUser
             if (firebaseUser == null) {
-                RequestState.Error(Exception("Usuário ou senha inválidos"))
+                RequestState.Error(InvalidUserPasswordException())
             } else {
                 RequestState.Success(User(firebaseUser.displayName ?: ""))
             }
@@ -70,7 +71,7 @@ class UserRemoteFirebaseDataSourceImpl(
 
             val userId = mAuth.currentUser?.uid
             if (userId == null) {
-                RequestState.Error(java.lang.Exception("Não foi possível criar a conta"))
+                RequestState.Error(CreateAccountException())
             } else {
                 val newUserFirebasePayload = NewUserFirebasePayloadMapper.mapToNewUserFirebasePayload(newUser)
 
@@ -93,7 +94,7 @@ class UserRemoteFirebaseDataSourceImpl(
         return if (mAuth.currentUser == null) {
             RequestState.Success(true)
         } else {
-            RequestState.Error(Exception("Não foi possível deslogar"))
+            RequestState.Error(LogoutException())
         }
     }
 }

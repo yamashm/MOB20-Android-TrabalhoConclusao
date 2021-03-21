@@ -20,6 +20,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.DeleteItemUse
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.GetItemsUseCase
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.GetUserLoggedUseCase
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.auth.BaseAuthFragment
+import br.com.fiap.mob20_android_trabalhoconclusaolib.alertdialog.CustomAlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.ArrayList
@@ -91,7 +92,25 @@ class ListFragment : BaseAuthFragment() {
     }
 
     private fun clickDeleteItem(id: String){
-        listViewModel.deleteItem(id)
+
+        val dialog = CustomAlertDialog()
+
+        dialog.showDialog(
+            requireActivity(),
+            R.raw.alert8750,
+            getString(R.string.dialog_delete),
+            getString(R.string.dialog_delete_message),
+            getString(R.string.dialog_ok),
+            View.OnClickListener {
+                dialog.dismissDialog()
+                listViewModel.deleteItem(id)
+            },
+            getString(R.string.dialog_cancel),
+            View.OnClickListener {
+                dialog.dismissDialog()
+            },
+            false
+        )
     }
 
     private fun integrationClickListener(id: String){
@@ -106,7 +125,6 @@ class ListFragment : BaseAuthFragment() {
                     showLoading()
                 }
                 is RequestState.Success -> {
-                    hideLoading()
 
                     val listItems:  MutableList<ListItem> = ArrayList()
 
@@ -117,6 +135,7 @@ class ListFragment : BaseAuthFragment() {
                     }
 
                     setUpList(listItems)
+                    hideLoading()
                 }
             }
         })
@@ -127,10 +146,8 @@ class ListFragment : BaseAuthFragment() {
                     showLoading()
                 }
                 is RequestState.Success -> {
-                    hideLoading()
-
                     listViewModel.getItems()
-
+                    hideLoading()
                 }
             }
         })
@@ -141,9 +158,8 @@ class ListFragment : BaseAuthFragment() {
                     showLoading()
                 }
                 is RequestState.Success -> {
-                    hideLoading()
-
                     tvHomeHelloUser.text = it.data
+                    hideLoading()
                 }
             }
         })

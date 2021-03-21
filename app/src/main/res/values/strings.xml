@@ -69,4 +69,13 @@
     <string name="loading_message">Please wait</string>
     <string name="give_call_permission">Allow de app to make calls</string>
     <string name="item_saving">Saving...</string>
+
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_cancel">Cancel</string>
+
+    <string name="dialog_delete">Delete</string>
+    <string name="dialog_delete_message">Delete item from list?</string>
+
+    <string name="dialog_call">Call</string>
+    <string name="dialog_call_message">Call the number </string>
 </resources>

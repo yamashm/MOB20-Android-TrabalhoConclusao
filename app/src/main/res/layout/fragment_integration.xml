@@ -119,14 +119,14 @@
                 android:text="@string/call"
                 android:layout_marginEnd="5dp"
                 android:drawableStart="@drawable/ic_call_24px"
-                style="@style/buttonIntegration"/>
+                style="@style/button_integration"/>
 
                 <Button
                     android:id="@+id/btShare"
                     android:text="@string/share"
                     android:layout_marginStart="5dp"
                     android:drawableStart="@drawable/ic_share_24px"
-                    style="@style/buttonIntegration"/>
+                    style="@style/button_integration"/>
         </LinearLayout>
         </LinearLayout>
     </LinearLayout>

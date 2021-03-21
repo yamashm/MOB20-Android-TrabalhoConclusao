@@ -67,4 +67,13 @@
     <string name="loading_message">Aguarde um momento</string>
     <string name="give_call_permission">Permitir que o aplicativo faça ligações</string>
     <string name="item_saving">Salvando...</string>
+
+    <string name="dialog_ok">Sim</string>
+    <string name="dialog_cancel">Cancelar</string>
+
+    <string name="dialog_delete">Deletar</string>
+    <string name="dialog_delete_message">Deletar item da lista?</string>
+
+    <string name="dialog_call">Ligar</string>
+    <string name="dialog_call_message">Ligar para o número </string>
 </resources>

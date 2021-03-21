@@ -70,7 +70,6 @@
                 <EditText
                     android:id="@+id/etNameItem"
                     style="@style/field_edit_text"
-                    android:singleLine="true"
                     tools:text="" />
 
             </LinearLayout>
@@ -84,7 +83,6 @@
                 <EditText
                     android:id="@+id/etPhoneItem"
                     style="@style/field_edit_text"
-                    android:singleLine="true"
                     tools:text="(11) 99999-9999" />
 
             </LinearLayout>
@@ -98,7 +96,6 @@
                 <EditText
                     android:id="@+id/etZipCode"
                     style="@style/field_edit_text"
-                    android:singleLine="true"
                     tools:text="01000-000" />
 
             </LinearLayout>
@@ -112,7 +109,6 @@
                 <EditText
                     android:id="@+id/etLocationItem"
                     style="@style/field_edit_text"
-                    android:singleLine="true"
                     tools:text="" />
 
             </LinearLayout>
@@ -126,7 +122,6 @@
                 <EditText
                     android:id="@+id/etDescriptionItem"
                     style="@style/field_edit_text"
-                    android:singleLine="true"
                     tools:text="" />
 
             </LinearLayout>

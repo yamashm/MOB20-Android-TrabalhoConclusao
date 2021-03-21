@@ -20,6 +20,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.data.repository.ItemRepositor
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases.GetItemUseCase
 import br.com.fiap.mob20_android_trabalhoconclusao.presentation.base.auth.BaseAuthFragment
+import br.com.fiap.mob20_android_trabalhoconclusaolib.alertdialog.CustomAlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -77,27 +78,48 @@ class IntegrationFragment : BaseAuthFragment(){
 
     private fun setUpListener() {
         btCall.setOnClickListener {
-            val dialIntent = Intent(Intent.ACTION_CALL)
-            dialIntent.data = Uri.parse("tel:" + tvInfoPhone.text)
 
-            if (ContextCompat.checkSelfPermission(
-                    requireActivity(),
-                    Manifest.permission.CALL_PHONE
-                ) != PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(
-                        requireActivity(),
-                        Manifest.permission.CALL_PHONE
-                    )
-                ) {
-                    Toast.makeText(activity, getString(R.string.give_call_permission), Toast.LENGTH_SHORT).show()
-                } else {
-                    ActivityCompat.requestPermissions(requireActivity(),
-                        arrayOf(Manifest.permission.CALL_PHONE),
-                        42)
-                }
-            } else {
-                startActivity(dialIntent)
-            }
+            val dialog = CustomAlertDialog()
+
+            dialog.showDialog(
+                requireActivity(),
+                R.raw.callbutton35178,
+                getString(R.string.dialog_call),
+                getString(R.string.dialog_call_message) + " " + tvInfoPhone.text + " ?",
+                getString(R.string.dialog_ok),
+                View.OnClickListener {
+                    dialog.dismissDialog()
+
+                    val dialIntent = Intent(Intent.ACTION_CALL)
+                    dialIntent.data = Uri.parse("tel:" + tvInfoPhone.text)
+
+                    if (ContextCompat.checkSelfPermission(
+                            requireActivity(),
+                            Manifest.permission.CALL_PHONE
+                        ) != PackageManager.PERMISSION_GRANTED) {
+                        if (ActivityCompat.shouldShowRequestPermissionRationale(
+                                requireActivity(),
+                                Manifest.permission.CALL_PHONE
+                            )
+                        ) {
+                            Toast.makeText(activity, getString(R.string.give_call_permission), Toast.LENGTH_SHORT).show()
+                        } else {
+                            ActivityCompat.requestPermissions(requireActivity(),
+                                arrayOf(Manifest.permission.CALL_PHONE),
+                                42)
+                        }
+                    } else {
+                        startActivity(dialIntent)
+                    }
+
+                },
+                getString(R.string.dialog_cancel),
+                View.OnClickListener {
+                    dialog.dismissDialog()
+                },
+                false
+            )
+
         }
 
         btShare.setOnClickListener {

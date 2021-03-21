@@ -122,7 +122,7 @@ abstract class BaseFragment : Fragment() {
         baseViewModel.getMinVersion()
     }
 
-    fun showLoading(message: String = "Processando a requisição") {
+    fun showLoading(message: String = getString(R.string.loading_message)) {
         loadingView.visibility = View.VISIBLE
         if (message.isNotEmpty())
 

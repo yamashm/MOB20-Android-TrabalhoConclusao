@@ -3,6 +3,7 @@ package br.com.fiap.mob20_android_trabalhoconclusao.domain.usecases
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.Item
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.NewItem
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.exceptions.UserNotFoundException
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.repository.ItemRepository
 
 class SaveItemUseCase (
@@ -20,7 +21,7 @@ class SaveItemUseCase (
                 RequestState.Loading
             }
             is RequestState.Error -> {
-                RequestState.Error(Exception( "Usuário não encontrado para associar o item" ))
+                RequestState.Error(UserNotFoundException())
             }
         }
     }

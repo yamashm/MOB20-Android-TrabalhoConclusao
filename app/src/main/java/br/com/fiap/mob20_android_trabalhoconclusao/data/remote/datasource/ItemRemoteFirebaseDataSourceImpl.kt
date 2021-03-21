@@ -4,6 +4,7 @@ import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.Item
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.NewItem
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.entity.RequestState
 import br.com.fiap.mob20_android_trabalhoconclusao.domain.exceptions.ItemNotFoundException
+import br.com.fiap.mob20_android_trabalhoconclusao.domain.exceptions.UserNotLoggedException
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -38,13 +39,16 @@ class ItemRemoteFirebaseDataSourceImpl(
                                      list.add(taskItem)
                                  }
                              }
+                             else{
+                                 RequestState.Error(UserNotLoggedException())
+                             }
                          }
                      }).await()
 
                  RequestState.Success(list)
              } else
              {
-                 RequestState.Error(Exception("Usuário não logado"))
+                 RequestState.Error(UserNotLoggedException())
              }
 
         } catch (e: Exception){

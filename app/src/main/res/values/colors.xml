@@ -32,9 +32,9 @@
     <color name="backgroundButtonDelete">#C62C36</color>
     <color name="backgroundButtonDeletePressed">#FF4040</color>
 
-    <color name="backgroundButtonDisabled">#F2F4F6</color>
+    <color name="backgroundButtonDisabled">#584E59</color>
     <color name="backgroundButton">@color/secondaryBackground</color>
-    <color name="backgroundButtonPressed">#6698BC</color>
+    <color name="backgroundButtonPressed">#603D5F</color>
 
     <color name="headerTextColor">#FFF</color>
 
