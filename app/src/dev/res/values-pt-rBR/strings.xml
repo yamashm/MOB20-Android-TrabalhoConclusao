@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SelfCar</string>
-    <string name="name_of_the_application">SelfCar</string>
+    <string name="app_name">SelfCar DEV</string>
+    <string name="name_of_the_application">SelfCar DEV</string>
     <string name="designed_by">Feito por Bruno, Demetrius, Dorenalto e Marcelo</string>
 
     <string name="menu_home_home">Inicial</string>

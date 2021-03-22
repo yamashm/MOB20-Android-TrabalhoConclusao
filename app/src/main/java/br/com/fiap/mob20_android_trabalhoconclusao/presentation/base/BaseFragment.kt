@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.os.bundleOf
@@ -50,34 +49,11 @@ abstract class BaseFragment : Fragment() {
 
         loadingView = inflater.inflate(R.layout.include_loading, container, false)
 
-        val flavourScreen = inflater.inflate(R.layout.include_flavour, container, false)
-        val flavourView = flavourScreen.findViewById<LinearLayout>(R.id.flavourScreen)
-
         screenRootView.addView(screenView)
         screenRootView.addView(loadingView)
-        screenRootView.addView(flavourView)
 
         return screenRootView
     }
-
-//    private fun configureEnvironment(container: View, tvEnvironment: TextView) {
-//
-//        when (BuildConfig.FLAVOR) {
-//            "dev" -> {
-//                container.visibility = View.VISIBLE
-//                tvEnvironment.text = "Desenvolvimento"
-//            }
-//            "hml" -> {
-//                container.visibility = View.VISIBLE
-//                tvEnvironment.text = "Homologação"
-//            }
-//            "main" -> {
-//                container.visibility = View.GONE
-//                tvEnvironment.text = ""
-//            }
-//        }
-//
-//    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

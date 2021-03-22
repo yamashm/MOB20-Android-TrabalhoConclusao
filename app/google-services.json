@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "184876092771",
+    "firebase_url": "https://mob20-android-conclusao-default-rtdb.firebaseio.com",
     "project_id": "mob20-android-conclusao",
     "storage_bucket": "mob20-android-conclusao.appspot.com"
   },
@@ -10,6 +11,64 @@
         "mobilesdk_app_id": "1:184876092771:android:16781428d25108807e1756",
         "android_client_info": {
           "package_name": "br.com.fiap.mob20_android_trabalhoconclusao"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184876092771-nc45q17n2iolq50l1h75rod569sc31a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD73QVvbJLugVrz5Cp7aZLZlQjsnZURGUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184876092771-nc45q17n2iolq50l1h75rod569sc31a0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184876092771:android:2039f1ac414af08e7e1756",
+        "android_client_info": {
+          "package_name": "br.com.fiap.mob20_android_trabalhoconclusao.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184876092771-nc45q17n2iolq50l1h75rod569sc31a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD73QVvbJLugVrz5Cp7aZLZlQjsnZURGUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184876092771-nc45q17n2iolq50l1h75rod569sc31a0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184876092771:android:b5e4d88b17aceefe7e1756",
+        "android_client_info": {
+          "package_name": "br.com.fiap.mob20_android_trabalhoconclusao.hml"
         }
       },
       "oauth_client": [
