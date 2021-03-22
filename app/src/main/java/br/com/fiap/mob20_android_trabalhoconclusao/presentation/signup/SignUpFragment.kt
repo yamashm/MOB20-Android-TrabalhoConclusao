@@ -85,10 +85,10 @@ class SignUpFragment : BaseFragment() {
         }
         btCreateAccount.setOnClickListener {
             signUpViewModel.create(
-                etUserNameSignUp.text.toString(),
-                etEmailSignUp.text.toString(),
+                etUserNameSignUp.text.toString().trim(),
+                etEmailSignUp.text.toString().trim(),
                 etPhoneSignUp.text.toString(),
-                etPasswordSignUp.text.toString()
+                etPasswordSignUp.text.toString().trim()
             )
         }
         btLoginSignUp.setOnClickListener {
